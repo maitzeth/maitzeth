@@ -1,65 +1,79 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Layout from "../components/Layout";
+import Typography from "../components/Typography";
+import { Row, Col } from "../components/styles/Grid";
+import styled from "styled-components";
+import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
+  const yearsWorking = () => new Date().getFullYear() - 2015;
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+    <Layout title="Home" fullHeight>
+      <Row alignItems="center">
+        <Col size={8} offset={2}>
+          <HomeImage src="/images/myself.jpg" alt="poket logo" />
+          <Typography
+            fontSize={44}
+            fontWeight="bold"
+            color="black"
+            textAlign="center"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            Hello 👋 I'm André.
+          </Typography>
+          <Typography
+            fontSize={19.2}
+            color="gray"
+            fontWeight={300}
+            lineHeight={1.2}
           >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+            I've been working as a <strong>Web Developer</strong> from the last{" "}
+            <strong>{yearsWorking()} years</strong>.
+          </Typography>
+          <Typography
+            fontSize={19.2}
+            color="gray"
+            fontWeight={300}
+            lineHeight={1.2}
+          >
+            I'm passionate about Front-End Development, performance and web
+            technologies.
+          </Typography>
+          <Typography
+            fontSize={19.2}
+            color="gray"
+            fontWeight={300}
+            lineHeight={1.2}
+          >
+            I'm always working with JavaScript and I'm specialized on Front-End
+            development <strong>(React and little bit of Vue)</strong>, but also
+            have a little bit experience with some Back-End Technologies (Node).
+          </Typography>
+          <Typography
+            fontSize={19.2}
+            color="gray"
+            fontWeight={300}
+            lineHeight={1.2}
+          >
+            If you have any web development needs, feel free to{" "}
+            <Link href="/contact">
+              <a>contact</a>
+            </Link>{" "}
+            or get to know me a <Link href="/about">little better</Link>.
+          </Typography>
+        </Col>
+      </Row>
+    </Layout>
+  );
+};
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+const HomeImage = styled.img`
+  max-width: 100%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+`;
+
+export default Home;
