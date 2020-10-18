@@ -58,7 +58,7 @@ const Home = () => {
             <Link href="/contact">
               <a>contact</a>
             </Link>{" "}
-            or get to know me a <Link href="/about">little better</Link>.
+            or get to <Link href="/about"> know me</Link>.
           </Typography>
         </Col>
       </Row>

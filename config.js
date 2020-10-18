@@ -26,8 +26,12 @@ const navigation = [
     to: "/",
   },
   {
-    title: "Work",
-    to: "/work",
+    title: "Blog",
+    to: "/blog",
+  },
+  {
+    title: "Contact",
+    to: "/contact",
   },
 ];
 
@@ -49,7 +53,7 @@ const socialNetworks = {
 const themeScheme = {
   colors: {
     darkBackground: "rgba(7,9,25, 1)",
-    blackFooterBackground: "rgba(164,167,193, 1)",
+    darkLightBackground: "#0d1131",
     black: "#000",
     white: "#fff",
     lightText: "#777",

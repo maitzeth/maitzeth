@@ -95,7 +95,7 @@ const NavWrapperLeft = styled.nav`
         color: ${(props) =>
           props.activeTheme === "light"
             ? props.theme.colors.lightAccent
-            : props.theme.colors.darkAccent} !important;
+            : props.theme.colors.darkAccent};
       }
     }
   }

@@ -1,6 +1,7 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { CustomThemeProvider, ThemeContext } from "../context/themeContext";
-import { themeScheme } from "../config";
+import { themeScheme, fontSize } from "../config";
+import { SWRConfig } from "swr";
 
 const GlobalStyle = createGlobalStyle`
   *, ::after, ::before {
@@ -53,20 +54,47 @@ const GlobalStyle = createGlobalStyle`
           : props.theme.colors.lightAccent};
     }
   }
+
+  .card-shadow {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  }
+
+
+  pre {
+    line-height:1.2em;
+    border-radius: 5px; 
+    background-color: #f6f6f6;
+    padding: 12px;
+    background-size: 2.4em 2.4em;
+    background-origin: content-box; 
+    text-align: justify;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: ${fontSize(12)};
+    overflow: auto;
+    color: #2f3337;
+  }
 `;
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CustomThemeProvider>
-      <ThemeContext.Consumer>
-        {(props) => (
-          <ThemeProvider theme={themeScheme}>
-            <GlobalStyle activeTheme={props.theme} />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        )}
-      </ThemeContext.Consumer>
-    </CustomThemeProvider>
+    <SWRConfig
+      value={{
+        revalidateOnFocus: false,
+        fetcher: (resource, init) =>
+          fetch(resource, init).then((res) => res.json()),
+      }}
+    >
+      <CustomThemeProvider>
+        <ThemeContext.Consumer>
+          {(props) => (
+            <ThemeProvider theme={themeScheme}>
+              <GlobalStyle activeTheme={props.theme} />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          )}
+        </ThemeContext.Consumer>
+      </CustomThemeProvider>
+    </SWRConfig>
   );
 }
 

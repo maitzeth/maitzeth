@@ -27,6 +27,10 @@ const Header = ({ title = "Site" }) => {
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800&display=swap"
         rel="stylesheet"
       />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+        rel="stylesheet"
+      />
     </Head>
   );
 };
