@@ -8,7 +8,7 @@ import { format } from "date-fns";
 import { API_URL } from "../config";
 
 const Post = ({ slug, title, subtitle, created_at, image }) => {
-  const { url: ImageUrl, name } = image.formats.medium;
+  const { url, name } = image;
 
   return (
     <Wrapper>
@@ -16,9 +16,9 @@ const Post = ({ slug, title, subtitle, created_at, image }) => {
         <a>
           <Inner>
             <ImageWrapper>
-              <img src={`${API_URL}${ImageUrl}`} alt={name} />
+              <img src={`${API_URL}${url}`} alt={name} />
             </ImageWrapper>
-            <ContentWrapper className="card-shadow">
+            <ContentWrapper className="card-shadow-lg">
               <Typography
                 tag="h2"
                 fontSize={22.4}
