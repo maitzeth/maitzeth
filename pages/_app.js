@@ -1,6 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { CustomThemeProvider, ThemeContext } from "../context/themeContext";
-import { themeScheme, fontSize } from "../config";
+import { lightTheme, darkTheme, fontSize, themeTransition } from "../config";
 import { SWRConfig } from "swr";
 
 const GlobalStyle = createGlobalStyle`
@@ -14,20 +14,13 @@ const GlobalStyle = createGlobalStyle`
     text-align: inherit;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    background-color:  ${(props) =>
-      props.activeTheme === "dark"
-        ? props.theme.colors.darkBackground
-        : props.theme.colors.white};
-    transition: all 100ms ease;
+    background-color:  ${(props) => props.theme.colors.background};
+    transition: ${themeTransition};
     text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
   }
 
   a {
-    color: ${(props) =>
-      props.activeTheme === "dark"
-        ? props.theme.colors.darkAccent
-        : props.theme.colors.lightAccent};
+    color: ${(props) => props.theme.colors.accent};
     text-decoration: none;
 
     &:hover {
@@ -37,21 +30,12 @@ const GlobalStyle = createGlobalStyle`
 
   #nprogress {
     .bar {
-      background-color: ${(props) =>
-        props.activeTheme === "dark"
-          ? props.theme.colors.darkAccent
-          : props.theme.colors.lightAccent}
+      background-color: ${(props) => props.theme.colors.accent}
     }
 
     .spinner-icon {
-      border-top-color: ${(props) =>
-        props.activeTheme === "dark"
-          ? props.theme.colors.darkAccent
-          : props.theme.colors.lightAccent};
-      border-left-color: ${(props) =>
-        props.activeTheme === "dark"
-          ? props.theme.colors.darkAccent
-          : props.theme.colors.lightAccent};
+      border-top-color: ${(props) => props.theme.colors.accent};
+      border-left-color: ${(props) => props.theme.colors.accent};
     }
   }
 
@@ -71,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Share Tech Mono', monospace;
     font-size: ${fontSize(12)};
     overflow: auto;
-    color: #2f3337;
+    color: ${(props) => props.theme.colors.codeColor};
   }
 `;
 
@@ -87,8 +71,10 @@ function MyApp({ Component, pageProps }) {
       <CustomThemeProvider>
         <ThemeContext.Consumer>
           {(props) => (
-            <ThemeProvider theme={themeScheme}>
-              <GlobalStyle activeTheme={props.theme} />
+            <ThemeProvider
+              theme={props.theme === "dark" ? darkTheme : lightTheme}
+            >
+              <GlobalStyle />
               <Component {...pageProps} />
             </ThemeProvider>
           )}

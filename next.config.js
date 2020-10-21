@@ -1,7 +1,5 @@
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-});
-
-module.exports = withMDX({
-  pageExtensions: ["js", "jsx", "mdx"],
-});
+module.exports = {
+  env: {
+    API_URL: "http://localhost:1337",
+  },
+};

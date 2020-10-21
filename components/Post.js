@@ -5,10 +5,10 @@ import Link from "next/link";
 import router from "next/router";
 import Typography from "./Typography";
 import { format } from "date-fns";
-import { useTheme } from "../context/themeContext";
+import { API_URL } from "../config";
 
-const Post = ({ slug, title, subtitle, created_at, categories, image }) => {
-  const { theme } = useTheme();
+const Post = ({ slug, title, subtitle, created_at, image }) => {
+  const { url: ImageUrl, name } = image.formats.medium;
 
   return (
     <Wrapper>
@@ -16,22 +16,9 @@ const Post = ({ slug, title, subtitle, created_at, categories, image }) => {
         <a>
           <Inner>
             <ImageWrapper>
-              <img src={image} alt={title} />
+              <img src={`${API_URL}${ImageUrl}`} alt={name} />
             </ImageWrapper>
-            <ContentWrapper className="card-shadow" activeTheme={theme}>
-              <CategoriesWrapper>
-                {categories.map((category) => (
-                  <Tag
-                    key={category}
-                    fontSize={15}
-                    color="gray"
-                    fontWeight={500}
-                    activeTheme={theme}
-                  >
-                    {category}
-                  </Tag>
-                ))}
-              </CategoriesWrapper>
+            <ContentWrapper className="card-shadow">
               <Typography
                 tag="h2"
                 fontSize={22.4}
@@ -74,8 +61,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   created_at: PropTypes.string.isRequired,
-  categories: PropTypes.array.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 const Wrapper = styled.article`
@@ -120,31 +106,15 @@ const ContentWrapper = styled.main`
   position: relative;
   transition: all 200ms ease;
   margin-top: -2.5rem;
-  background-color: ${(props) =>
-    props.activeTheme === "light"
+  background-color: ${(props) => props.theme.colors.postItem};
+  /* props.activeTheme === "light"
       ? props.theme.colors.white
-      : props.theme.colors.darkLightBackground};
+      : props.theme.colors.darkLightBackground}; */
 
   h2 {
     margin: 0;
     margin-top: 0.5rem;
   }
-`;
-
-const CategoriesWrapper = styled.div`
-  display: flex;
-
-  p {
-    margin: 0;
-    margin-right: 10px;
-  }
-`;
-
-const Tag = styled(Typography)`
-  background-color: ${(props) =>
-    props.activeTheme === "light" ? "#77777717" : "#070919"};
-  padding: 0.5rem 0.8rem;
-  border-radius: 20px;
 `;
 
 export default Post;

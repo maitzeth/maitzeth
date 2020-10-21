@@ -3,7 +3,14 @@ import styled from "styled-components";
 import Typography from "./Typography";
 import { Container } from "./styles/Grid";
 import ThemeToggler from "./ThemeToggler";
-import { fontSize, socialNetworks, navigation, device, BRAND } from "../config";
+import {
+  fontSize,
+  socialNetworks,
+  navigation,
+  device,
+  BRAND,
+  themeTransition,
+} from "../config";
 import { useTheme } from "../context/themeContext";
 import Link from "next/link";
 
@@ -77,25 +84,21 @@ const NavWrapperLeft = styled.nav`
 
   a {
     padding: 10px 15px;
-    color: ${(props) =>
-      props.activeTheme === "dark"
-        ? props.theme.colors.white
-        : props.theme.colors.lightText};
+    color: ${(props) => props.theme.colors.text};
     opacity: 0.65;
+    transition: ${themeTransition};
 
     p {
       margin: 0;
     }
 
     &:hover {
+      color: ${(props) => props.theme.colors.accent};
       text-decoration: none;
       opacity: 1;
 
       p {
-        color: ${(props) =>
-          props.activeTheme === "light"
-            ? props.theme.colors.lightAccent
-            : props.theme.colors.darkAccent};
+        color: ${(props) => props.theme.colors.accent};
       }
     }
   }
@@ -121,12 +124,11 @@ const SocialWrapper = styled.div`
   display: flex;
 
   a {
+    transition: ${themeTransition};
+    color: ${(props) => props.theme.colors.text};
+
     &:hover {
-      ${(props) =>
-        props.activeTheme === "light" &&
-        `
-        color: ${props.theme.colors.black};
-      `};
+      color: ${(props) => props.theme.colors.accent};
     }
   }
 

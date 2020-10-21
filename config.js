@@ -3,6 +3,8 @@ import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 const FONT_SIZE = 16;
 const BRAND = "André Iván";
 
+const API_URL = process.env.API_URL;
+
 const fontSize = (px) => {
   const value = (px / FONT_SIZE) * 1;
   return `${value}rem`;
@@ -50,18 +52,29 @@ const socialNetworks = {
   },
 };
 
-const themeScheme = {
+const lightTheme = {
   colors: {
-    darkBackground: "rgba(7,9,25, 1)",
-    darkLightBackground: "#0d1131",
+    background: "#fff",
+    text: "#777",
+    accent: "#5c61ff",
     black: "#000",
     white: "#fff",
-    lightText: "#777",
-    darkText: "#a4a7c1",
-    lightAccent: "#5c61ff",
-    darkAccent: "#00c58e",
+    postItem: "#fff",
   },
 };
+
+const darkTheme = {
+  colors: {
+    background: "#070919",
+    text: "#a4a7c1",
+    accent: "#00c58e",
+    black: "#000",
+    white: "#fff",
+    postItem: "#0d1131",
+  },
+};
+
+const themeTransition = "all 100ms ease-in";
 
 export {
   navigation,
@@ -70,5 +83,8 @@ export {
   fontSize,
   mediaQuerySizes,
   device,
-  themeScheme,
+  lightTheme,
+  darkTheme,
+  themeTransition,
+  API_URL,
 };

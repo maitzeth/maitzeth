@@ -6,10 +6,10 @@ import { useTheme } from "../context/themeContext";
 
 function getTextColor(colors, theme, color) {
   if (theme === "dark") {
-    return colors.darkText;
+    return colors.text;
   }
 
-  return color === "gray" ? colors.lightText : colors.black;
+  return color === "gray" ? colors.text : colors.black;
 }
 
 const Paragraph = styled.p`
