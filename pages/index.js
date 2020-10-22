@@ -8,7 +8,7 @@ const Home = () => {
   const yearsWorking = () => new Date().getFullYear() - 2015;
 
   return (
-    <Layout title="Home" fullHeight>
+    <Layout title="Home" fullHeight justifyCenter>
       <Row alignItems="center">
         <Col size={8} offset={2}>
           <HomeImage src="/images/myself.jpg" alt="poket logo" />

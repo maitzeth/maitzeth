@@ -31,8 +31,8 @@ const Blog = () => {
   };
 
   return (
-    <Layout title="Home" topSpace>
-      <Row>{renderPostOrLoader()}</Row>
+    <Layout title="Home" fullHeight>
+      <Row className="w-100">{renderPostOrLoader()}</Row>
     </Layout>
   );
 };

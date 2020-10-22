@@ -41,7 +41,9 @@ const PostItem = () => {
           <Typography fontSize={16} color="gray" fontWeight="300">
             {data.subtitle}
           </Typography>
-          <ReactMarkdown>{data.content}</ReactMarkdown>
+          <div className="post-wrapper">
+            <ReactMarkdown>{data.content}</ReactMarkdown>
+          </div>
         </Col>
       </Row>
     );

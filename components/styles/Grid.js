@@ -16,12 +16,13 @@ export const Container = styled.section`
   ${(props) =>
     props.fullHeight &&
     `
-    min-height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px - 60px);
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
   `};
+
+  ${(props) => props.justifyCenter && `justify-content: center;`}
+  ${(props) => props.alignItemsCenter && `align-items: center;`}
 
   @media ${device.wideScreen} {
     max-width: ${mediaQuerySizes.extraLarge}px;

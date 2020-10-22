@@ -60,6 +60,7 @@ const lightTheme = {
     black: "#000",
     white: "#fff",
     postItem: "#fff",
+    footer: "#80808008",
   },
 };
 
@@ -71,6 +72,7 @@ const darkTheme = {
     black: "#000",
     white: "#fff",
     postItem: "#0d1131",
+    footer: "#0d1131",
   },
 };
 

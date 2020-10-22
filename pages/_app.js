@@ -60,6 +60,16 @@ const GlobalStyle = createGlobalStyle`
     overflow: auto;
     color: ${(props) => props.theme.colors.codeColor};
   }
+
+  .post-wrapper {
+    p, h1, h2, h3, h4, h5, h6 {
+      color: ${(props) => props.theme.colors.text};
+    }
+  }
+
+  .w-100 {
+    width: 100%;
+  }
 `;
 
 function MyApp({ Component, pageProps }) {
