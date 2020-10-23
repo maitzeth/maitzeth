@@ -8,6 +8,7 @@ import Typography from "../../components/Typography";
 import { Row, Col } from "../../components/styles/Grid";
 import { format } from "date-fns";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
 
 const PostItem = () => {
   const router = useRouter();
@@ -16,40 +17,49 @@ const PostItem = () => {
   const renderContent = () => {
     if (!data) {
       return (
-        <div>
-          <h1>Loading...</h1>
+        <div className="d-flex flex-direction-column">
+          <Skeleton width={200} height={30} className="mb-1" />
+          <Skeleton width={100} height={30} className="mb-1" />
+          <Skeleton width="100%" height={40} className="mb-1" />
+          <Skeleton width="100%" height={300} />
         </div>
       );
     }
 
     return (
-      <Row>
-        <Col size={10} offset={2}>
-          <Typography fontSize={28} color="black" fontWeight="bolder">
-            {data.name}
-          </Typography>
-          <Typography fontSize={13} color="gray" fontWeight="300">
-            {format(new Date(data.created_at), "MMM do, yyyy")}
-          </Typography>
-          <FeaturedImageWrapper>
-            <FeaturedImage
-              className="card-shadow-md"
-              src={`${API_URL}${data.image.url}`}
-              alt={data.name}
-            />
-          </FeaturedImageWrapper>
-          <Typography fontSize={16} color="gray" fontWeight="300">
-            {data.subtitle}
-          </Typography>
-          <div className="post-wrapper">
-            <ReactMarkdown>{data.content}</ReactMarkdown>
-          </div>
-        </Col>
-      </Row>
+      <>
+        <Typography fontSize={28} color="black" fontWeight="bolder">
+          {data.name}
+        </Typography>
+        <Typography fontSize={13} color="gray" fontWeight="300">
+          {format(new Date(data.created_at), "MMM do, yyyy")}
+        </Typography>
+        <FeaturedImageWrapper>
+          <FeaturedImage
+            className="card-shadow-md"
+            src={`${API_URL}${data.image.url}`}
+            alt={data.name}
+          />
+        </FeaturedImageWrapper>
+        <Typography fontSize={16} color="gray" fontWeight="300">
+          {data.subtitle}
+        </Typography>
+        <div className="post-wrapper">
+          <ReactMarkdown>{data.content}</ReactMarkdown>
+        </div>
+      </>
     );
   };
 
-  return <Layout>{renderContent()}</Layout>;
+  return (
+    <Layout title={data?.name || "Loading..."} fullHeight>
+      <Row>
+        <Col size={10} offset={1}>
+          {renderContent()}
+        </Col>
+      </Row>
+    </Layout>
+  );
 };
 
 const FeaturedImageWrapper = styled.div`

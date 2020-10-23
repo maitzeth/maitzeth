@@ -3,17 +3,18 @@ import { Row, Col } from "../components/styles/Grid";
 import useSWR from "swr";
 import Post from "../components/Post";
 import { API_URL } from "../config";
+import Skeleton from "react-loading-skeleton";
 
 const Blog = () => {
   const { data } = useSWR(`${API_URL}/posts`);
 
   const renderPostOrLoader = () => {
     if (!data) {
-      return (
-        <div>
-          <h1>Loading...</h1>
-        </div>
-      );
+      return [...Array(6)].map((item, index) => (
+        <Col size={4} key={index} className="mb-2">
+          <Skeleton width="100%" height={200} />
+        </Col>
+      ));
     }
 
     return data?.map((post) => (
@@ -31,7 +32,7 @@ const Blog = () => {
   };
 
   return (
-    <Layout title="Home" fullHeight>
+    <Layout title="My Blog" fullHeight topSpace>
       <Row className="w-100">{renderPostOrLoader()}</Row>
     </Layout>
   );

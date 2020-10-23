@@ -1,4 +1,4 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider, css } from "styled-components";
 import { CustomThemeProvider, ThemeContext } from "../context/themeContext";
 import { lightTheme, darkTheme, fontSize, themeTransition } from "../config";
 import { SWRConfig } from "swr";
@@ -70,7 +70,47 @@ const GlobalStyle = createGlobalStyle`
   .w-100 {
     width: 100%;
   }
+
+  .d-flex {
+    display: flex;
+  }
+
+  .flex-direction-column {
+    flex-direction: column;
+  }
+
+  ${marginTypes()};
+
+  .home-content {
+    h1 {
+      font-size: ${fontSize(44)};
+      text-align: center;
+      color: ${(props) => props.theme.colors.black};
+    }
+
+    p {
+      font-size: ${fontSize(19.2)};
+      color: ${(props) => props.theme.colors.text};
+      font-weight: 300;
+    }
+  } 
 `;
+
+function marginTypes() {
+  let styles = "";
+
+  for (let i = 0; i < 5; i++) {
+    styles += `
+       .mb-${i} {
+         margin-bottom: ${i}rem;
+       }
+     `;
+  }
+
+  return css`
+    ${styles}
+  `;
+}
 
 function MyApp({ Component, pageProps }) {
   return (

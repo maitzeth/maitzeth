@@ -38,7 +38,7 @@ Layout.propTypes = {
 };
 
 const StyledContainer = styled(Container)`
-  margin-top: ${(props) => (props.topSpace ? "3rem" : "0")};
+  padding-top: ${(props) => (props.topSpace ? "3rem" : "0")};
 `;
 
 export default Layout;

@@ -24,16 +24,16 @@ const device = {
 
 const navigation = [
   {
-    title: "About me",
+    title: "Home",
     to: "/",
+  },
+  {
+    title: "About me",
+    to: "/about",
   },
   {
     title: "Blog",
     to: "/blog",
-  },
-  {
-    title: "Contact",
-    to: "/contact",
   },
 ];
 
@@ -69,7 +69,7 @@ const darkTheme = {
     background: "#070919",
     text: "#a4a7c1",
     accent: "#00c58e",
-    black: "#000",
+    black: "#a4a7c1",
     white: "#fff",
     postItem: "#0d1131",
     footer: "#0d1131",

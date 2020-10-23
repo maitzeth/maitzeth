@@ -3,63 +3,24 @@ import Typography from "../components/Typography";
 import { Row, Col } from "../components/styles/Grid";
 import styled from "styled-components";
 import Link from "next/link";
+import { API_URL } from "../config";
+import useSWR from "swr";
+import ReactMarkdown from "react-markdown";
 
 const Home = () => {
+  const { data } = useSWR(`${API_URL}/homepage`);
   const yearsWorking = () => new Date().getFullYear() - 2015;
+
+  console.log(data);
 
   return (
     <Layout title="Home" fullHeight justifyCenter>
       <Row alignItems="center">
         <Col size={8} offset={2}>
-          <HomeImage src="/images/myself.jpg" alt="poket logo" />
-          <Typography
-            fontSize={44}
-            fontWeight="bold"
-            color="black"
-            textAlign="center"
-          >
-            Hello 👋 I'm André.
-          </Typography>
-          <Typography
-            fontSize={19.2}
-            color="gray"
-            fontWeight={300}
-            lineHeight={1.2}
-          >
-            I've been working as a <strong>Web Developer</strong> from the last{" "}
-            <strong>{yearsWorking()} years</strong>.
-          </Typography>
-          <Typography
-            fontSize={19.2}
-            color="gray"
-            fontWeight={300}
-            lineHeight={1.2}
-          >
-            I'm passionate about Front-End Development, performance and web
-            technologies.
-          </Typography>
-          <Typography
-            fontSize={19.2}
-            color="gray"
-            fontWeight={300}
-            lineHeight={1.2}
-          >
-            I'm always working with JavaScript and I'm specialized on Front-End
-            development <strong>(React and little bit of Vue)</strong>, but also
-            have a little bit experience with some Back-End Technologies (Node).
-          </Typography>
-          <Typography
-            fontSize={19.2}
-            color="gray"
-            fontWeight={300}
-            lineHeight={1.2}
-          >
-            If you have any web development needs, feel free to{" "}
-            <Link href="/contact">
-              <a>contact</a>
-            </Link>{" "}
-            or get to <Link href="/about"> know me</Link>.
-          </Typography>
+          <HomeImage src={`${API_URL}${data?.image.url}`} alt={data?.name} />
+          <div className="home-content">
+            <ReactMarkdown>{data?.description}</ReactMarkdown>
+          </div>
         </Col>
       </Row>
     </Layout>

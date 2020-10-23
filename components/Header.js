@@ -3,6 +3,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { BRAND } from "../config";
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -21,7 +22,9 @@ const Header = ({ title = "Site" }) => {
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <title>{title}</title>
+      <title>
+        {BRAND} - {title}
+      </title>
       <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
       <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800&display=swap"

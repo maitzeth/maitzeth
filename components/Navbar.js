@@ -48,7 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper as="header">
       <NavWrapperLeft activeTheme={theme}>
         <Link href="/">
           <a>
