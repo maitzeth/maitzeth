@@ -26,6 +26,5 @@ export default (req, res) => {
     },
   ];
 
-  res.statusCode = 200;
-  res.json(data);
+  res.status(200).json(data);
 };

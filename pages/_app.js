@@ -79,21 +79,11 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
+  hr {
+    border: 1px solid #e2e8f0;
+  }
+
   ${marginTypes()};
-
-  .home-content {
-    h1 {
-      font-size: ${fontSize(44)};
-      text-align: center;
-      color: ${(props) => props.theme.colors.black};
-    }
-
-    p {
-      font-size: ${fontSize(19.2)};
-      color: ${(props) => props.theme.colors.text};
-      font-weight: 300;
-    }
-  } 
 `;
 
 function marginTypes() {

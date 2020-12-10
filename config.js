@@ -31,10 +31,6 @@ const navigation = [
     title: "About me",
     to: "/about",
   },
-  {
-    title: "Blog",
-    to: "/blog",
-  },
 ];
 
 const socialNetworks = {
