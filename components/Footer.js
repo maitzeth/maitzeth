@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <Typography fontSize={13} fontWeight="500">
-        Made with ❤️ by {BRAND} © 2020 - v1.1
+        Coded with ❤️ by {BRAND} © 2020
       </Typography>
     </Wrapper>
   );

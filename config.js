@@ -52,7 +52,7 @@ const lightTheme = {
   colors: {
     background: "#fff",
     text: "#777",
-    accent: "#5c61ff",
+    accent: "#e74c3c",
     black: "#000",
     white: "#fff",
     postItem: "#fff",
@@ -64,7 +64,7 @@ const darkTheme = {
   colors: {
     background: "#070919",
     text: "#a4a7c1",
-    accent: "#00c58e",
+    accent: "#27ae60",
     black: "#a4a7c1",
     white: "#fff",
     postItem: "#0d1131",

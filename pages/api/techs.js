@@ -30,14 +30,6 @@ export default (req, res) => {
       alt: "Gatsby Logo",
       image: "/images/gatsby.svg",
     },
-    {
-      alt: "jQuery Logo",
-      image: "/images/jquery.svg",
-    },
-    {
-      alt: "Vue Logo",
-      image: "/images/vue.svg",
-    },
   ];
 
   res.status(200).json(data);

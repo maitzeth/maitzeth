@@ -25,20 +25,15 @@ const Home = () => {
             />
           </ImageWrapper>
           <HomeContent>
-            <h1>Hello 👋 I'm André.</h1>
+            <h1>Hello there 👋, I'm André Iván.</h1>
             <p>
-              I've been working as a <strong>Web Developer</strong> from the
-              last {workingTime} years.
+              I'm a Venezuelan guy based on Argentina. I've been working for services companies and freelance projects since I started programming professionally as a <strong>Frontend Developer</strong> for the last {workingTime} years. However, I have some experience with <strong>Backend technologies</strong> like node but is not my strong skill.
             </p>
             <p>
-              I'm passionate about Front-End Development, performance and web
-              technologies.
+              Most of my work in the last couple of years has been in React that I am a huge fan of it's technology and ecosystem. (This site was made with Next.js 💕). If you want to check the site's code <a href="https://github.com/maitzeth/maitzeth" target="_blank" rel="noopener noreferrer">click here</a>.
             </p>
             <p>
-              I'm always working with JavaScript and I'm specialized on
-              Front-End development{" "}
-              <strong>(React and little bit of Vue)</strong>, but also have a
-              little bit experience with some Back-End Technologies (Node).
+              If you want to contact me just <a href="mailto:andre801mz@gmail.com" target="_blank" rel="noopener noreferrer"> click here 🔥</a>.
             </p>
           </HomeContent>
         </Col>
@@ -62,7 +57,6 @@ const HomeContent = styled.section`
   p {
     font-size: ${fontSize(19.2)};
     color: ${(props) => props.theme.colors.text};
-    font-weight: 300;
   }
 `;
 
