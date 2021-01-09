@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { Row, Col } from "../components/styles/Grid";
 import SkeletonLoader from "../components/SkeletonLoader";
 import Typography from "../components/Typography";
-import WorkExperience from "../components/WorkExperience";
+import Experience from "../components/Experience";
 import styled from "styled-components";
 import TechItem from "../components/TechItem";
 
@@ -22,7 +22,7 @@ const About = () => {
           <SkeletonLoader width={300} height={50} count={4} />
         ) : (
           experiencesData?.map((work) => (
-            <WorkExperience
+            <Experience
               key={work.id}
               companyName={work.company_name}
               startDate={work.start_date}
@@ -30,6 +30,7 @@ const About = () => {
               position={work.position}
               isCurrent={work.is_current}
               country={work.country}
+              content={work.content}
             />
           ))
         )}
@@ -72,7 +73,7 @@ const About = () => {
           <SkeletonLoader width={300} height={50} count={4} />
         ) : (
           educationData?.map((work) => (
-            <WorkExperience
+            <Experience
               key={work.id}
               companyName={work.company_name}
               startDate={work.start_date}

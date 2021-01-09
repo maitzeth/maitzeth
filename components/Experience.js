@@ -1,21 +1,29 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Typography from "./Typography";
+import ExperienceContent from "./ExperienceContent";
+import { FiChevronDown } from "react-icons/fi";
 
-const WorkExperience = ({
+const Experience = ({
   companyName,
   startDate,
   endDate,
   position,
   isCurrent,
   country,
+  content,
 }) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const toggleOpen = () => setOpen((prev) => !prev);
+
+  console.log(isOpen);
+
   return (
     <Wrapper>
       <Inner>
         <DotAccent isCurrent={isCurrent} />
-        <Content>
+        <Content onClick={toggleOpen} isClickeable={content}>
           <Typography fontSize={16} fontWeight="400" color="gray">
             {startDate} - {endDate} · {country}
           </Typography>
@@ -26,12 +34,27 @@ const WorkExperience = ({
             {companyName}
           </Typography>
         </Content>
+        {content && <FiChevronDown />}
       </Inner>
+      {content && (
+        <ExperienceContent isOpen={isOpen}>
+          {content.title && (
+            <Typography tag="h4" fontSize={16} fontWeight="bold">
+              {content.title}
+            </Typography>
+          )}
+          <ul>
+            {content.items.map((work) => (
+              <li>
+                <Typography fontSize={12}>{work}</Typography>
+              </li>
+            ))}
+          </ul>
+        </ExperienceContent>
+      )}
     </Wrapper>
   );
 };
-
-WorkExperience.propTypes = {};
 
 const Wrapper = styled.div`
   margin-top: 2.5rem;
@@ -54,6 +77,13 @@ const DotAccent = styled.div`
 const Content = styled.div`
   flex: 1;
   margin-left: 1rem;
+  max-width: 480px;
+
+  ${({ isClickeable }) =>
+    isClickeable &&
+    `
+    cursor: pointer;
+  `}
 
   h3,
   p {
@@ -66,4 +96,4 @@ const Content = styled.div`
   }
 `;
 
-export default WorkExperience;
+export default Experience;
