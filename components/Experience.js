@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Typography from "./Typography";
 import ExperienceContent from "./ExperienceContent";
 import { FiChevronDown } from "react-icons/fi";
+import { useTheme } from "../context/themeContext";
+import { lightTheme, darkTheme } from "../config";
 
 const Experience = ({
   companyName,
@@ -13,11 +15,10 @@ const Experience = ({
   country,
   content,
 }) => {
+  const { theme } = useTheme();
   const [isOpen, setOpen] = useState(false);
 
   const toggleOpen = () => setOpen((prev) => !prev);
-
-  console.log(isOpen);
 
   return (
     <Wrapper>
@@ -34,7 +35,16 @@ const Experience = ({
             {companyName}
           </Typography>
         </Content>
-        {content && <FiChevronDown />}
+        {content && (
+          <FiChevronDown
+            size={28}
+            color={
+              theme === "light"
+                ? lightTheme.colors.black
+                : darkTheme.colors.text
+            }
+          />
+        )}
       </Inner>
       {content && (
         <ExperienceContent isOpen={isOpen}>
