@@ -27,13 +27,41 @@ const Home = () => {
           <HomeContent>
             <h1>Hello there 👋, I'm André Iván.</h1>
             <p>
-              I'm a Venezuelan guy based on Argentina. I've been working for services companies and freelance projects since I started programming professionally as a <strong>Frontend Developer</strong> for the last {workingTime} years. However, I have some experience with <strong>Backend technologies</strong> like node but is not my strong skill.
+              I'm a Venezuelan guy based in Argentina. I have been working as a
+              freelance and for services companies since I started programming
+              professionally as a <strong>Frontend Developer</strong> for the
+              last {workingTime} years.
             </p>
             <p>
-              Most of my work in the last couple of years has been in React that I am a huge fan of it's technology and ecosystem. (This site was made with Next.js 💕). If you want to check the site's code <a href="https://github.com/maitzeth/maitzeth" target="_blank" rel="noopener noreferrer">click here</a>.
+              My main focus is to work as a <strong>Frontend developer</strong>{" "}
+              but I have some experience with{" "}
+              <strong>Backend technologies</strong> like node but is not my
+              strongest skill.
             </p>
             <p>
-              If you want to contact me just <a href="mailto:andre801mz@gmail.com" target="_blank" rel="noopener noreferrer"> click here 🔥</a>.
+              Most of my work in the last couple of years has been in React that
+              I am a huge fan of it's technology and ecosystem. (This site was
+              made with Next.js 💕). If you want to check the site's code{" "}
+              <a
+                href="https://github.com/maitzeth/maitzeth"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                click here
+              </a>
+              .
+            </p>
+            <p>
+              If you want to contact me just{" "}
+              <a
+                href="mailto:andre801mz@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                click here 🔥
+              </a>
+              .
             </p>
           </HomeContent>
         </Col>

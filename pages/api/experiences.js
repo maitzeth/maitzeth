@@ -11,13 +11,14 @@ export default (req, res) => {
       position: "Freelancing Web Developer",
       start_date: format(new Date("2014-12-31"), "LLLL yyyy"),
       content: {
-        title: "Projects for web in React and more",
+        title:
+          "Helping multiple people and companies with great success in their problems by using React and ecosystem (like redux, react-router-dom, formik, etc) as my main tool as a front-end development.",
         items: [
-          "Pixales - Created a Admin Dashboard, interacting with API Rest that uses Redux and Redux-thunk.",
-          "Pocket - Worked for Revolt in a React Application and Admin Dashboard (nextjs) where people can get a Loan (API Rest, Redux, Redux Thunk, Nextjs)",
-          "Lifefy - Worked for Revolt Build in React an SPA to buy life insurances (API Rest, Redux, Redux Thunk)",
-          "Potenza - Worked for Revolt build in NextJS an storefront from scratch (API Rest, Api Routes, swr, context api)",
-          "Many other works for multiple clients on Wordpress or HTML/CSS sites.",
+          "Pixales - Helped an small startup by developing a Dashboard in React that will to manage all Settings for a videogame made in Unity",
+          "Pocket - Worked with Revolt LLC by creating a Dashboard in NextJS and SPA where people can get a Loans using.",
+          "Lifefy - Worked with Revolt LLC creating a Step Form Application where people can buy life insurances. (React)",
+          "Potenza - Worked with Revolt LLC by creating a storefront in nextjs that will help people buying oil lubricant and more. Using Nextjs for its versatility creating pages and using api routes for server side authentication.",
+          "Helped many other clients by developing Wordpress or HTML/CSS sites for their products or services.",
         ],
       },
     },
@@ -30,11 +31,13 @@ export default (req, res) => {
       start_date: format(new Date("2019-04-30"), "LLLL yyyy"),
       end_date: format(new Date("2020-10-19"), "LLLL yyyy"),
       content: {
+        title:
+          "Manage front-end development for a technology company using React and React Native by creating cost-effective applications.",
         items: [
-          "AltaSalud- Helped to define architecture, tooling and implemented their Website and Admin Dashboard(Link Here). Built in React",
-          "Beetscoop- Helped to define architecture, tooling and implemented a PWA and Admin Dashboard(Link Here). Built in Reac",
-          "Time2Talk- Helped to define architecture, tooling and implemented my first React Native App and Admin Dashboard(Link Here), where youcan have real time conversations with teachers, so you can improve or learn Spanish. By releasing the first stable version for iOS and Android.",
-          "Ikorso- Helped to define structure and tooling of a Admin Dashboard toLink here",
+          "AltaSalud - Helped to define architecture, tooling and implemented an application where people can manage their payment receipts (React).",
+          "Betscoop -  Worked on a PWA application and Admin Dashboard where people can make bets and administrators can manage people payments. Where Betscoop can earn money by getting taxes for any transaction and Braintly can get a maintenance contract with Betscoop.",
+          "Time2Talk - Built an App on React Native and Admin Dashboard, where students can have real time conversations with coaches and you can improve or learn Spanish. I worked on the first stable version for iOS and Android.",
+          "Ikorso - Created a Admin Dashboard where administrator can manage an storefront (React)",
         ],
       },
     },
@@ -48,8 +51,7 @@ export default (req, res) => {
       end_date: format(new Date("2019-03-30"), "LLLL yyyy"),
       content: {
         items: [
-          "Worked on an backoffice app for Banco Santander Rio, developing new features for the legacy version and code maintenance for better per-formance and UX, using AngularJS for UI Development, BEM for CSS class naming conventions and SCSS for CSS processing",
-          "At the same time I worked on a small team that helps to migrate the app from AngularJS to React.",
+          "Worked on a tool that helps Banco Santander Rio to create new users accounts into their bank system by developing new features for the legacy version and code maintenance for better performance and UX, using React.",
         ],
       },
     },
@@ -63,7 +65,7 @@ export default (req, res) => {
       end_date: format(new Date("2018-04-08"), "LLLL yyyy"),
       content: {
         items: [
-          "Worked teaching the basics about HTML5, CSS3 and introduction to Javascript using jQuery. Almost over 1 course per month.",
+          "Worked helping EscuelaWeb by teaching HTML/CSS3 and Javascript for almost 300 students.",
         ],
       },
     },
