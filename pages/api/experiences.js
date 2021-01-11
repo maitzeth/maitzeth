@@ -14,10 +14,10 @@ export default (req, res) => {
         title:
           "Helping multiple people and companies with great success in their problems by using React and ecosystem (like redux, react-router-dom, formik, etc) as my main tool as a front-end development.",
         items: [
-          "Pixales - Helped an small startup by developing a Dashboard in React that will to manage all Settings for a videogame made in Unity",
-          "Pocket - Worked with Revolt LLC by creating a Dashboard in NextJS and SPA where people can get a Loans using.",
+          "Pixales - Helped a small startup by developing a Dashboard in React that will manage all Settings for a videogame made in Unity",
+          "Pocket - Worked with Revolt LLC by creating a Dashboard in NextJS and SPA where people can get a Loan.",
           "Lifefy - Worked with Revolt LLC creating a Step Form Application where people can buy life insurances. (React)",
-          "Potenza - Worked with Revolt LLC by creating a storefront in nextjs that will help people buying oil lubricant and more. Using Nextjs for its versatility creating pages and using api routes for server side authentication.",
+          "Potenza - Worked with Revolt LLC by creating a storefront in nextjs that will help people buying oil lubricants and more. Using Nextjs for its versatility creating pages and using API routes for server-side authentication.",
           "Helped many other clients by developing Wordpress or HTML/CSS sites for their products or services.",
         ],
       },
@@ -32,12 +32,12 @@ export default (req, res) => {
       end_date: format(new Date("2020-10-19"), "LLLL yyyy"),
       content: {
         title:
-          "Manage front-end development for a technology company using React and React Native by creating cost-effective applications.",
+          "MANAGE FRONT-END DEVELOPMENT FOR A TECHNOLOGY COMPANY USING REACT AND REACT NATIVE BY CREATING COST-EFFECTIVE APPLICATIONS.",
         items: [
-          "AltaSalud - Helped to define architecture, tooling and implemented an application where people can manage their payment receipts (React).",
-          "Betscoop -  Worked on a PWA application and Admin Dashboard where people can make bets and administrators can manage people payments. Where Betscoop can earn money by getting taxes for any transaction and Braintly can get a maintenance contract with Betscoop.",
-          "Time2Talk - Built an App on React Native and Admin Dashboard, where students can have real time conversations with coaches and you can improve or learn Spanish. I worked on the first stable version for iOS and Android.",
-          "Ikorso - Created a Admin Dashboard where administrator can manage an storefront (React)",
+          "AltaSalud - Helped to define architecture, tooling, and implemented an application where people can manage their payment receipts (React).",
+          "Betscoop -  Worked on a PWA application and Admin Dashboard where people can make bets and administrators can manage people's payments. Where Betscoop can earn money by getting taxes for any transaction and Braintly can get a maintenance contract with Betscoop.",
+          "Time2Talk - Built an App on React Native and Admin Dashboard, where students can have real-time conversations with coaches and you can improve or learn Spanish. I worked on the first stable version for iOS and Android.",
+          "Ikorso - Created an Admin Dashboard where the administrator can manage a storefront (React)",
         ],
       },
     },
