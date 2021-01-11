@@ -27,6 +27,14 @@ export default (req, res) => {
       image: "/images/redux.svg",
     },
     {
+      alt: "Git Logo",
+      image: "/images/git-icon.svg",
+    },
+    {
+      alt: "Git Logo",
+      image: "/images/react-router.svg",
+    },
+    {
       alt: "Gatsby Logo",
       image: "/images/gatsby.svg",
     },
