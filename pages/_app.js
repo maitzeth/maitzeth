@@ -2,6 +2,9 @@ import { createGlobalStyle, ThemeProvider, css } from "styled-components";
 import { CustomThemeProvider, ThemeContext } from "../context/themeContext";
 import { lightTheme, darkTheme, fontSize, themeTransition } from "../config";
 import { SWRConfig } from "swr";
+import { ToastContainer } from "react-toastify";
+import { toast } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 const GlobalStyle = createGlobalStyle`
   *, ::after, ::before {
@@ -103,22 +106,40 @@ function marginTypes() {
 }
 
 function MyApp({ Component, pageProps }) {
+  const SWROptions = {
+    fetcher: async (resource) => {
+      const res = await fetch(resource)
+
+      if (!res.ok) {
+        const error = new Error('An error occurred while fetching the data.')
+        error.info = await res.json()
+        error.status = res.status
+        throw error
+      }
+
+      return res.json()
+    },
+    revalidateOnFocus: false,
+    onError: (err) => {
+      toast.error(err?.info.message);
+    }
+  }
+
   return (
-    <SWRConfig
-      value={{
-        revalidateOnFocus: false,
-        fetcher: (resource, init) =>
-          fetch(resource, init).then((res) => res.json()),
-      }}
-    >
+    <SWRConfig value={SWROptions} >
       <CustomThemeProvider>
         <ThemeContext.Consumer>
-          {(props) => (
+          {({ theme }) => (
             <ThemeProvider
-              theme={props.theme === "dark" ? darkTheme : lightTheme}
+              theme={theme === "dark" ? darkTheme : lightTheme}
             >
               <GlobalStyle />
               <Component {...pageProps} />
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                pauseOnHover
+              />
             </ThemeProvider>
           )}
         </ThemeContext.Consumer>

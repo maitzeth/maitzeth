@@ -31,6 +31,10 @@ const navigation = [
     title: "About me",
     to: "/about",
   },
+  {
+    title: "Playground",
+    to: "/playground",
+  },
 ];
 
 const socialNetworks = {

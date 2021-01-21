@@ -1,12 +1,20 @@
 import axios from 'axios';
+import useApiErrorHandler from '../../helpers/useApiErrorHandler'
 
+const handlePlayground = async (req, res) => {
+  const { method } = req;
 
-export default async (req, res) => {
+  if (method === "GET") {
+    const GIT_URL = 'https://api.github.com'
+    const response = await axios.get(`${GIT_URL}/users/maitzeth/repos`);
 
-  const GIT_URL = 'https://api.github.com'
+    console.log(response);
 
-  const response = await axios.get(`${GIT_URL}/orgs/octokit/repos`);
-
-
-  res.status(200).json(response.data);
+    res.status(200).json(response.data);
+  } else {
+    res.setHeader("Allow", ["GET"]);
+    res.status(405).end(`Method ${method} Not Allowed`);
+  }
 };
+
+export default useApiErrorHandler(handlePlayground);
