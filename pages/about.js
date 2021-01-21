@@ -11,6 +11,8 @@ const About = () => {
   const { data: experiencesData } = useSWR("/api/experiences");
   const { data: techsData } = useSWR("/api/techs");
   const { data: educationData } = useSWR("/api/education");
+  const { data } = useSWR("/api/playground");
+  
 
   const renderWorkExperience = () => {
     return (
@@ -48,9 +50,9 @@ const About = () => {
           <SkeletonLoader width={300} height={50} count={4} />
         ) : (
           <TechWrapper>
-            {techsData?.map((tech, index) => (
+            {techsData?.map((tech) => (
               <TechItem
-                key={index}
+                key={tech.id}
                 width={80}
                 height={80}
                 src={tech.image}

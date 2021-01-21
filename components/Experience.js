@@ -57,8 +57,8 @@ const Experience = ({
             </Typography>
           )}
           <ul>
-            {content.items.map((work) => (
-              <li>
+            {content.items.map((work, index) => (
+              <li key={index}>
                 <Typography fontSize={12}>{work}</Typography>
               </li>
             ))}
