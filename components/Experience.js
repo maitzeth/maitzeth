@@ -4,7 +4,7 @@ import Typography from "./Typography";
 import ExperienceContent from "./ExperienceContent";
 import { FiChevronDown } from "react-icons/fi";
 import { useTheme } from "../context/themeContext";
-import { lightTheme, darkTheme } from "../config";
+import { lightTheme, darkTheme, themeTransition } from "../config";
 
 const Experience = ({
   companyName,
@@ -22,9 +22,9 @@ const Experience = ({
 
   return (
     <Wrapper>
-      <Inner>
+      <Inner onClick={toggleOpen}>
         <DotAccent isCurrent={isCurrent} />
-        <Content onClick={toggleOpen} isClickeable={content}>
+        <Content  isClickeable={content}>
           <Typography fontSize={16} fontWeight="400" color="gray">
             {startDate} - {endDate} · {country}
           </Typography>
@@ -36,14 +36,17 @@ const Experience = ({
           </Typography>
         </Content>
         {content && (
+          <IconWrapper isOpen={isOpen}>
+
           <FiChevronDown
             size={28}
             color={
               theme === "light"
                 ? lightTheme.colors.black
                 : darkTheme.colors.text
-            }
-          />
+              }
+              />
+              </IconWrapper>
         )}
       </Inner>
       {content && (
@@ -87,7 +90,6 @@ const DotAccent = styled.div`
 const Content = styled.div`
   flex: 1;
   margin-left: 1rem;
-  max-width: 480px;
 
   ${({ isClickeable }) =>
     isClickeable &&
@@ -103,6 +105,13 @@ const Content = styled.div`
   h3 {
     margin-top: 8px;
     margin-bottom: 8px;
+  }
+`;
+
+const IconWrapper = styled.div`
+  svg {
+    transition: ${themeTransition}; 
+    transform: rotate(${({ isOpen }) => isOpen ? '180deg' : '0deg'});
   }
 `;
 
