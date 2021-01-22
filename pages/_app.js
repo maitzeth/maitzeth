@@ -90,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  justify-between {
+  .justify-between {
     justify-content: space-between;
   }
 
