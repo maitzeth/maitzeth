@@ -1,7 +1,7 @@
 import axios from "axios";
 import useApiErrorHandler from "../../helpers/useApiErrorHandler";
 
-const token = process.env.GITHUB_SECRET;
+const token = "6c2252cd43c93195e151e912234f84342ae888c6";
 
 const handlePlayground = async (req, res) => {
   const { method } = req;
