@@ -1,17 +1,17 @@
-import axios from 'axios';
-import useApiErrorHandler from '../../helpers/useApiErrorHandler'
+import axios from "axios";
+import useApiErrorHandler from "../../helpers/useApiErrorHandler";
 
-const token = process.env.GITHUB_SECRET
+const token = process.env.GITHUB_SECRET;
 
 const handlePlayground = async (req, res) => {
   const { method } = req;
 
   if (method === "GET") {
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     };
 
-    const GIT_URL = 'https://api.github.com';
+    const GIT_URL = "https://api.github.com";
     const response = await axios.get(`${GIT_URL}/users/maitzeth/repos`, config);
 
     res.status(200).json(response.data);
