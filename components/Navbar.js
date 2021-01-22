@@ -153,10 +153,8 @@ const SocialNetworkLink = styled.a`
   align-items: center;
   justify-content: center;
   line-height: 1;
-  color: ${(props) =>
-    props.activeTheme === "dark"
-      ? props.theme.colors.white
-      : props.theme.colors.lightText};
+  color: ${({ activeTheme, theme }) =>
+    activeTheme === "dark" ? theme.colors.white : theme.colors.lightText};
 
   &:hover {
     svg {
