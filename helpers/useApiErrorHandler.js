@@ -9,6 +9,7 @@ const useApiErrorHandler = (fn) => async (req, res) => {
       return res.status(error.response.status).json({
         status: error.response.status,
         message: error.message,
+        token: process.env.GITHUB_SECRET,
       });
     }
 
