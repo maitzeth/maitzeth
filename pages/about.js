@@ -11,8 +11,6 @@ const About = () => {
   const { data: experiencesData } = useSWR("/api/experiences");
   const { data: techsData } = useSWR("/api/techs");
   const { data: educationData } = useSWR("/api/education");
-  const { data } = useSWR("/api/playground");
-  
 
   const renderWorkExperience = () => {
     return (
