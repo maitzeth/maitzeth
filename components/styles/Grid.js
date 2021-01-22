@@ -43,6 +43,15 @@ export const Row = styled.div`
   margin-right: -15px;
   margin-left: -15px;
   ${(props) => props.alignItems && `align-items: ${props.alignItems}`};
+
+  ${({ noGutters }) =>
+    noGutters &&
+    `
+    > div {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  `}
 `;
 
 export const Col = styled.div`
