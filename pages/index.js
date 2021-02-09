@@ -2,7 +2,7 @@ import { differenceInYears } from "date-fns";
 import Box from "../components/Box";
 import Heading from "../components/Heading";
 import Layout from "../components/Layout";
-import { VStack } from "../components/Stack";
+import { VStack, HStack } from "../components/Stack";
 import Image from "../components/styles/Image";
 import Text from "../components/Text";
 
