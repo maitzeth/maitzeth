@@ -1,9 +1,15 @@
 import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { createGlobalStyle } from "styled-components";
+import { normalize } from "styled-normalize";
 
 const FONT_SIZE = 16;
 const BRAND = "André Iván";
 
-const API_URL = process.env.API_URL;
+const { API_URL } = process.env;
+
+const themeTransition = "all 100ms ease-in";
+
+const pluck = (field) => (obj) => obj[field];
 
 const fontSize = (px) => {
   const value = (px / FONT_SIZE) * 1;
@@ -11,15 +17,11 @@ const fontSize = (px) => {
 };
 
 const mediaQuerySizes = {
-  small: "545",
-  large: "760",
-  extraLarge: "1160",
+  tablet: "740",
 };
 
 const device = {
-  mobile: `(max-width: 650px)`,
-  desktop: `(max-width: 980px)`,
-  wideScreen: `(min-width: 1200px)`,
+  tablet: `@media screen and (max-width: 740px)`,
 };
 
 const navigation = [
@@ -52,6 +54,32 @@ const socialNetworks = {
   },
 };
 
+const textFontSizes = {
+  tablet: {
+    small: fontSize(10),
+    normal: fontSize(12),
+    large: fontSize(14),
+  },
+  desktop: {
+    small: fontSize(14),
+    normal: fontSize(16),
+    large: fontSize(18),
+  },
+};
+
+const titlesFontSizes = {
+  tablet: {
+    small: fontSize(18),
+    normal: fontSize(24),
+    large: fontSize(28),
+  },
+  desktop: {
+    small: fontSize(24),
+    normal: fontSize(32),
+    large: fontSize(42),
+  },
+};
+
 const lightTheme = {
   colors: {
     background: "#fff",
@@ -63,6 +91,8 @@ const lightTheme = {
     footer: "#80808008",
     thinBorders: "#e9e6e6",
   },
+  textFontSizes,
+  titlesFontSizes,
 };
 
 const darkTheme = {
@@ -76,9 +106,78 @@ const darkTheme = {
     footer: "#0d1131",
     thinBorders: "#a4a7c1",
   },
+  textFontSizes,
+  titlesFontSizes,
 };
 
-const themeTransition = "all 100ms ease-in";
+const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+
+  body {
+    margin: 0;
+    line-height: inherit;
+    text-align: inherit;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background-color:  ${({ theme }) => theme.colors.background};
+    transition: ${themeTransition};
+    text-rendering: optimizelegibility;
+  }
+
+  button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.accent};
+    text-decoration: underline;
+  }
+
+  #nprogress {
+    .bar {
+      background-color: ${({ theme }) => theme.colors.accent}
+    }
+
+    .spinner-icon {
+      border-top-color: ${({ theme }) => theme.colors.accent};
+      border-left-color: ${({ theme }) => theme.colors.accent};
+    }
+  }
+
+  pre {
+    line-height:1.2em;
+    border-radius: 5px; 
+    background-color: #f6f6f6;
+    padding: 12px;
+    background-size: 2.4em 2.4em;
+    background-origin: content-box; 
+    text-align: justify;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: ${fontSize(12)};
+    overflow: auto;
+    color: ${({ theme }) => theme.colors.codeColor};
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
+  .post-wrapper {
+    p, h1, h2, h3, h4, h5, h6 {
+      color: ${({ theme }) => theme.colors.text};
+    }
+  }
+
+`;
 
 export {
   navigation,
@@ -91,4 +190,6 @@ export {
   darkTheme,
   themeTransition,
   API_URL,
+  GlobalStyle,
+  pluck,
 };
