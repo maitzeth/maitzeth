@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
-import { Row, Col } from "../components/styles/Grid";
-import styled from "styled-components";
 import { differenceInYears } from "date-fns";
+import Box from "../components/Box";
+import Heading from "../components/Heading";
+import Layout from "../components/Layout";
+import { VStack } from "../components/Stack";
 import Image from "../components/styles/Image";
 import Text from "../components/Text";
-import Heading from "../components/Heading";
 
 const Home = () => {
   const startingDate = new Date(2015, 1, 1);
@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <Layout title="Home" fullHeight justifyCenter>
-      <ImageWrapper>
+      <Box display="flex" justifyContent="center" marginBottom="xlarge">
         <Image
           width="200"
           height="200"
@@ -22,8 +22,8 @@ const Home = () => {
           alt="Me watching you"
           objectFit="cover"
         />
-      </ImageWrapper>
-      <section>
+      </Box>
+      <VStack space="normal">
         <Heading size="large" weight="strong" color="black" align="center">
           Hello there 👋, I'm André Iván.
         </Heading>
@@ -69,14 +69,9 @@ const Home = () => {
           </a>
           .
         </Text>
-      </section>
+      </VStack>
     </Layout>
   );
 };
-
-const ImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 
 export default Home;

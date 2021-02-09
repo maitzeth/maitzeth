@@ -4,20 +4,27 @@ export const mediaQuery = {
   tablet: `@media screen and (max-width: 740px)`,
 };
 
-export const getHeadingLevel = (size) => {
-  // <"1" | "2" | "3">
+export const getSpacingValue = (size) => {
+  // <"small" | "normal" | "large", "xlarge">
   switch (size) {
     case "small": {
-      return 1.75;
+      return "0.5rem";
     }
 
-    case "medium": {
-      return 1.5;
+    case "normal": {
+      return "1rem";
     }
 
-    case "large":
+    case "large": {
+      return "1.5rem";
+    }
+
+    case "xlarge": {
+      return "2rem";
+    }
+
     default: {
-      return 2.75;
+      return null;
     }
   }
 };
