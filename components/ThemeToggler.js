@@ -32,10 +32,6 @@ const ButtonWrapper = styled.button`
   margin-left: 20px;
   order: 2;
 
-  @media ${device.mobile} {
-    order: 0;
-  }
-
   &:hover {
     opacity: 1;
   }

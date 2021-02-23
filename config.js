@@ -1,6 +1,6 @@
-import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
+import { BREAKPOINTS } from "@mollycule/lattice";
 
 const FONT_SIZE = 16;
 const BRAND = "André Iván";
@@ -20,10 +20,6 @@ const mediaQuerySizes = {
   tablet: "740",
 };
 
-const device = {
-  tablet: `@media screen and (max-width: 740px)`,
-};
-
 const navigation = [
   {
     title: "Home",
@@ -38,21 +34,6 @@ const navigation = [
     to: "/playground",
   },
 ];
-
-const socialNetworks = {
-  instagram: {
-    component: FaInstagram,
-    url: "https://www.instagram.com/maitzethdrummer/",
-  },
-  github: {
-    component: FaGithub,
-    url: "https://github.com/maitzeth",
-  },
-  linkedin: {
-    component: FaLinkedinIn,
-    url: "https://www.linkedin.com/in/andre-ivan-mz/",
-  },
-};
 
 const textFontSizes = {
   tablet: {
@@ -93,6 +74,7 @@ const lightTheme = {
   },
   textFontSizes,
   titlesFontSizes,
+  breakpoints: BREAKPOINTS,
 };
 
 const darkTheme = {
@@ -108,6 +90,7 @@ const darkTheme = {
   },
   textFontSizes,
   titlesFontSizes,
+  breakpoints: BREAKPOINTS,
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -181,11 +164,9 @@ const GlobalStyle = createGlobalStyle`
 
 export {
   navigation,
-  socialNetworks,
   BRAND,
   fontSize,
   mediaQuerySizes,
-  device,
   lightTheme,
   darkTheme,
   themeTransition,

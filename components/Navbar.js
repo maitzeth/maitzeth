@@ -3,16 +3,25 @@ import styled from "styled-components";
 import Typography from "./Typography";
 import { Container } from "./styles/Grid";
 import ThemeToggler from "./ThemeToggler";
-import {
-  fontSize,
-  socialNetworks,
-  navigation,
-  device,
-  BRAND,
-  themeTransition,
-} from "../config";
+import { fontSize, navigation, BRAND, themeTransition } from "../config";
 import { useTheme } from "../context/themeContext";
 import Link from "next/link";
+import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
+
+const socials = {
+  instagram: {
+    component: FaInstagram,
+    url: "https://www.instagram.com/maitzethdrummer/",
+  },
+  github: {
+    component: FaGithub,
+    url: "https://github.com/maitzeth",
+  },
+  linkedin: {
+    component: FaLinkedinIn,
+    url: "https://www.linkedin.com/in/andre-ivan-mz/",
+  },
+};
 
 const Navbar = () => {
   const { theme } = useTheme();
@@ -32,15 +41,15 @@ const Navbar = () => {
   const renderSocialMedia = () => {
     return (
       <SocialWrapper activeTheme={theme}>
-        {Object.keys(socialNetworks).map((item, index) => (
+        {Object.keys(socials).map((item, index) => (
           <SocialNetworkLink
             key={index}
             activeTheme={theme}
-            href={socialNetworks[item].url}
+            href={socials[item].url}
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            {socialNetworks[item].component()}
+            {socials[item].component()}
           </SocialNetworkLink>
         ))}
       </SocialWrapper>
@@ -102,23 +111,9 @@ const NavWrapperLeft = styled.nav`
       }
     }
   }
-
-  @media ${device.mobile} {
-    flex-direction: column;
-    align-items: flex-start;
-
-    > a {
-      padding-bottom: 0;
-      padding-top: 0;
-    }
-  }
 `;
 
-const LinksWrapper = styled.div`
-  @media ${device.mobile} {
-    margin-top: 15px;
-  }
-`;
+const LinksWrapper = styled.div``;
 
 const SocialWrapper = styled.div`
   display: flex;
@@ -131,20 +126,11 @@ const SocialWrapper = styled.div`
       color: ${(props) => props.theme.colors.accent};
     }
   }
-
-  @media ${device.mobile} {
-    margin-top: 15px;
-  }
 `;
 
 const NavWrapperRight = styled.nav`
   display: flex;
   margin-left: auto;
-
-  @media ${device.mobile} {
-    flex-direction: column;
-    align-items: flex-end;
-  }
 `;
 
 const SocialNetworkLink = styled.a`

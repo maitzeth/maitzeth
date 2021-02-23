@@ -23,18 +23,6 @@ export const Container = styled.section`
 
   ${(props) => props.justifyCenter && `justify-content: center;`}
   ${(props) => props.alignItemsCenter && `align-items: center;`}
-
-  @media ${device.wideScreen} {
-    max-width: ${mediaQuerySizes.extraLarge}px;
-  }
-
-  @media ${device.desktop} {
-    max-width: ${mediaQuerySizes.large}px;
-  }
-
-  @media ${device.mobile} {
-    max-width: ${mediaQuerySizes.small}px;
-  }
 `;
 
 export const Row = styled.div`
@@ -63,10 +51,4 @@ export const Col = styled.div`
   flex: 0 0 ${(props) => handleFlexSize(props.size)}%;
   max-width: ${(props) => handleFlexSize(props.size)}%;
   ${(props) => props.offset && `margin-left: ${handleFlexSize(props.offset)}%`};
-
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-left: 0;
-  }
 `;
