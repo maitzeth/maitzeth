@@ -15,11 +15,7 @@ const Home = () => {
   const workingTime = differenceInYears(endDate, startingDate);
 
   return (
-    <Box
-      display={{ mobile: "none", desktop: "grid" }}
-      width={{ mobile: "50%", desktop: "100%" }}
-      maxWidth="100%"
-    >
+    <Box maxWidth={{ mobile: "200px", desktop: "300px" }} marginY="medium">
       <h1>Layout component</h1>
     </Box>
   );

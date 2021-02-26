@@ -2,7 +2,6 @@ import { css } from "styled-components";
 
 export const mediaQuery = {
   mobile: `@media screen and (max-width: 768px)`,
-  desktop: `@media screen and (min-width: 768px)`,
 };
 
 export const getSpacingValue = (size) => {

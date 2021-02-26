@@ -61,6 +61,23 @@ const titlesFontSizes = {
   },
 };
 
+const sizes = {
+  small: "0.5rem",
+  medium: "1rem",
+  large: "1.5rem",
+  xlarge: "2rem",
+};
+
+const media = {
+  mobile: `@media screen and (max-width: 768px)`,
+  desktop: `@media screen and (min-width: 768px)`,
+};
+
+const weight = {
+  weak: "400",
+  strong: "600",
+};
+
 const lightTheme = {
   colors: {
     background: "#fff",
@@ -75,6 +92,9 @@ const lightTheme = {
   textFontSizes,
   titlesFontSizes,
   breakpoints: BREAKPOINTS,
+  scale: sizes,
+  media,
+  weight,
 };
 
 const darkTheme = {
@@ -91,6 +111,9 @@ const darkTheme = {
   textFontSizes,
   titlesFontSizes,
   breakpoints: BREAKPOINTS,
+  scale: sizes,
+  media,
+  weight,
 };
 
 const GlobalStyle = createGlobalStyle`
