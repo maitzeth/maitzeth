@@ -35,33 +35,15 @@ const navigation = [
   },
 ];
 
-const textFontSizes = {
-  tablet: {
-    small: fontSize(10),
-    normal: fontSize(12),
-    large: fontSize(14),
-  },
-  desktop: {
-    small: fontSize(14),
-    normal: fontSize(16),
-    large: fontSize(18),
-  },
-};
-
-const titlesFontSizes = {
-  tablet: {
-    small: fontSize(18),
-    normal: fontSize(24),
-    large: fontSize(28),
-  },
-  desktop: {
-    small: fontSize(24),
-    normal: fontSize(32),
-    large: fontSize(42),
-  },
+const fontSizes = {
+  small: fontSize(14),
+  text: fontSize(18),
+  heading: fontSize(22),
+  xHeading: fontSize(42),
 };
 
 const sizes = {
+  xsmall: "0.25rem",
   small: "0.5rem",
   medium: "1rem",
   large: "1.5rem",
@@ -69,13 +51,13 @@ const sizes = {
 };
 
 const media = {
-  mobile: `@media screen and (max-width: 768px)`,
-  desktop: `@media screen and (min-width: 768px)`,
+  mobile: 768,
 };
 
 const weight = {
   weak: "400",
   strong: "600",
+  xstrong: "800",
 };
 
 const lightTheme = {
@@ -89,8 +71,7 @@ const lightTheme = {
     footer: "#80808008",
     thinBorders: "#e9e6e6",
   },
-  textFontSizes,
-  titlesFontSizes,
+  fontSizes,
   breakpoints: BREAKPOINTS,
   scale: sizes,
   media,
@@ -108,8 +89,7 @@ const darkTheme = {
     footer: "#0d1131",
     thinBorders: "#a4a7c1",
   },
-  textFontSizes,
-  titlesFontSizes,
+  fontSizes,
   breakpoints: BREAKPOINTS,
   scale: sizes,
   media,

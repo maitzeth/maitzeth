@@ -1,8 +1,6 @@
-import { mediaQuery, getSpacingValue } from "../theme";
-import { mapKeys, has } from "lodash";
 import { useTheme } from "../context/themeContext";
 import { lightTheme, darkTheme } from "../config";
-import Immutable from "immutable";
+import { useMedia } from "react-use";
 
 import { useMemo } from "react";
 
@@ -17,7 +15,9 @@ const useDesignUtils = () => {
     return darkTheme;
   }, [theme]);
 
-  const generateProps = (valueOrMap, fieldName) => {
+  const isMobile = useMedia(`"(max-width: ${themeValues.media.mobile}px)"`);
+
+  const generateProps = (valueOrMap) => {
     if (!valueOrMap) {
       return undefined;
     }
@@ -27,42 +27,12 @@ const useDesignUtils = () => {
     }
 
     if (valueOrMap.mobile && valueOrMap.desktop) {
-      let mobileKey = themeValues.media.mobile;
-      let desktopKey = themeValues.media.desktop;
-
-      const initialState = {
-        [desktopKey]: {
-          maxWidth: "300px",
-        },
-        [mobileKey]: {
-          maxWidth: "100px",
-        },
-      };
-
-      return initialState;
-
-      // console.log(Map(element));
-
-      // const map1 = Immutable.Map({ a: 1, b: 2, c: 3 });
-
-      // const map2 = map1.set("b", 50);
-
-      // console.log(map1);
-      // console.log(map2);
-
-      // const newState = Map(state);
-
-      // const lel = newState.set(fieldName, "400px");
-
-      // console.log(lel);
-
-      return undefined;
+      const value = isMobile ? valueOrMap.mobile : valueOrMap.desktop;
+      return value ? value : undefined;
     }
 
     console.error(
-      `You must add the key ${
-        !valueOrMap.mobile ? "mobile" : "desktop"
-      } on your responsive prop this will return undefined`
+      `Box with responsive object must use "mobile" and "desktop" keys.`
     );
 
     return undefined;
@@ -76,9 +46,20 @@ const useDesignUtils = () => {
     if (typeof valueOrMap !== "object") {
       const scaleKey = valueOrMap;
       const scales = themeValues[themeKey];
-
       return scaleKey ? scales[scaleKey] : undefined;
     }
+
+    if (valueOrMap.mobile && valueOrMap.desktop) {
+      const scales = themeValues[themeKey];
+      const value = isMobile
+        ? scales[valueOrMap.mobile]
+        : scales[valueOrMap.desktop];
+      return value ? value : undefined;
+    }
+
+    console.error(
+      `Box with responsive object must use "mobile" and "desktop" keys.`
+    );
   };
 
   return { generateProps, generateThemeProps };

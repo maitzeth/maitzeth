@@ -7,9 +7,9 @@ import PropTypes from "prop-types";
 const Layout = ({ children, title }) => (
   <>
     <Header title={title} />
-    <Navbar />
+    {/* <Navbar /> */}
     {children}
-    <Footer />
+    {/* <Footer /> */}
   </>
 );
 
