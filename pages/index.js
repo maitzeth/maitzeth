@@ -1,6 +1,5 @@
 import { differenceInYears } from "date-fns";
 import Layout from "../components/Layout";
-// import { Grid, Cell } from "@mollycule/lattice";
 import { Heading, Text, VStack, Image, Box } from "../components/MzUI";
 
 const Home = () => {
@@ -10,7 +9,7 @@ const Home = () => {
   const workingTime = differenceInYears(endDate, startingDate);
 
   return (
-    <Layout>
+    <Layout verticalCentered>
       <Box maxWidth={{ mobile: "100%", desktop: "768px" }} marginX="auto">
         <VStack tag="section" space="large">
           <Image
@@ -39,7 +38,10 @@ const Home = () => {
           <Text>
             My works in the last couple of years has been in React that I am a
             huge fan of it's technology and ecosystem. (This site was made with
-            Next.js 💕). If you want to check the site's code{" "}
+            Next.js 💕).
+          </Text>
+          <Text>
+            If you want to check the site's code{" "}
             <a
               href="https://github.com/maitzeth/maitzeth"
               target="_blank"

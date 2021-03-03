@@ -7,8 +7,6 @@ const Container = ({ tag, children, verticalSpace, verticalCentered }) => {
   const height = use100vh();
   const realHeight = height && `${height}px`;
 
-  console.log(realHeight);
-
   return (
     <Box
       tag={tag}

@@ -5,11 +5,11 @@ import Footer from "./Footer";
 import PropTypes from "prop-types";
 import { Container } from "./MzUI";
 
-const Layout = ({ children, title }) => (
+const Layout = ({ children, title, verticalCentered }) => (
   <>
     <Header title={title} />
     {/* <Navbar /> */}
-    <Container tag="main" verticalCentered>
+    <Container tag="main" verticalCentered={verticalCentered}>
       {children}
     </Container>
     {/* <Footer /> */}
@@ -22,6 +22,7 @@ Layout.propTypes = {
   fullHeight: PropTypes.bool,
   justifyCenter: PropTypes.bool,
   alignItemsCenter: PropTypes.bool,
+  verticalCentered: PropTypes.bool,
 };
 
 export default Layout;
