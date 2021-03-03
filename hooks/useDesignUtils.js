@@ -15,7 +15,7 @@ const useDesignUtils = () => {
     return darkTheme;
   }, [theme]);
 
-  const isMobile = useMedia(`"(max-width: ${themeValues.media.mobile}px)"`);
+  const isMobile = useMedia(`(max-width: ${themeValues.media.mobile}px)`);
 
   const generateProps = (valueOrMap) => {
     if (!valueOrMap) {

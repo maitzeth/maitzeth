@@ -6,7 +6,7 @@ const Heading = ({ children, tag = "h1", weight, align }) => {
   return (
     <Box
       tag={tag}
-      fontSize="xHeading"
+      fontSize={{ mobile: "heading", desktop: "xHeading" }}
       fontWeight={weight}
       textAlign={align}
       color="black"

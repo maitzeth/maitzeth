@@ -48,6 +48,8 @@ const sizes = {
   medium: "1rem",
   large: "1.5rem",
   xlarge: "2rem",
+  none: "none",
+  auto: "auto",
 };
 
 const media = {

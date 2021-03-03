@@ -6,10 +6,10 @@ const Text = ({ children, tag = "p", weight, align, accent }) => {
   return (
     <Box
       tag={tag}
-      fontSize={accent ? "accent" : "text"}
+      fontSize={{ mobile: "small", desktop: "text" }}
       fontWeight={weight}
       textAlign={align}
-      color="text"
+      color={accent ? "accent" : "text"}
     >
       {children}
     </Box>
@@ -17,7 +17,7 @@ const Text = ({ children, tag = "p", weight, align, accent }) => {
 };
 
 Text.propTypes = {
-  weight: PropTypes.oneOf(["xstrong", "strong", "weak"]).isRequired,
+  weight: PropTypes.oneOf(["xstrong", "strong", "weak"]),
   align: PropTypes.oneOf(["left", "center", "right"]),
   tag: PropTypes.oneOf(["span", "p"]),
 };

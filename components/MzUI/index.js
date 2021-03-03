@@ -3,3 +3,5 @@ export { default as VStack } from "./VStack";
 export { default as Box } from "./Box";
 export { default as Heading } from "./Heading";
 export { default as Text } from "./Text";
+export { default as Container } from "./Container";
+export { default as Image } from "./Image";

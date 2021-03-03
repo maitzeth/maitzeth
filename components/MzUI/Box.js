@@ -10,6 +10,7 @@ const Box = ({
   width,
   maxHeight,
   height,
+  minHeight,
 
   display,
 
@@ -46,6 +47,9 @@ const Box = ({
   textAlign,
   color,
   letterSpacing,
+  borderRadius,
+  overflow,
+
   ...viewProps
 }) => {
   const { generateProps, generateThemeProps } = useDesignUtils();
@@ -54,12 +58,17 @@ const Box = ({
     maxWidth: generateProps(maxWidth),
     width: generateProps(width),
     maxHeight: generateProps(maxHeight),
+
+    minHeight: generateProps(minHeight),
     height: generateProps(height),
 
     display: generateProps(display),
 
     marginTop: generateThemeProps("scale", marginY || marginTop || margin),
-    marginBottom: generateThemeProps("scale", marginY || marginTop || margin),
+    marginBottom: generateThemeProps(
+      "scale",
+      marginY || marginBottom || margin
+    ),
     marginLeft: generateThemeProps("scale", marginX || marginLeft || margin),
     marginRight: generateThemeProps("scale", marginX || marginRight || margin),
 
@@ -96,6 +105,8 @@ const Box = ({
     textAlign: generateProps(textAlign),
     color: generateThemeProps("colors", color),
     letterSpacing: generateProps(letterSpacing),
+    borderRadius: generateProps(borderRadius),
+    overflow: generateProps(overflow),
   };
 
   return <View as={tag} finalStyles={calculatedStyles} {...viewProps} />;
