@@ -5,9 +5,7 @@ import useDesignUtils from "../hooks/useDesignUtils";
 
 const Home = () => {
   const { isMobile } = useDesignUtils();
-  const startingDate = new Date(2015, 1, 1);
-  const endDate = new Date();
-  const workingTime = differenceInYears(endDate, startingDate);
+  const workingTime = differenceInYears(new Date(), new Date(2015, 1, 1));
 
   return (
     <Layout verticalCentered>
