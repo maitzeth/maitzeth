@@ -8,7 +8,7 @@ import { Container } from "./MzUI";
 const Layout = ({ children, title, verticalCentered }) => (
   <>
     <Header title={title} />
-    {/* <Navbar /> */}
+    <Navbar />
     <Container tag="main" verticalCentered={verticalCentered}>
       {children}
     </Container>

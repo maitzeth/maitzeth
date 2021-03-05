@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 import { BREAKPOINTS } from "@mollycule/lattice";
+import { FaInstagram, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const FONT_SIZE = 16;
 const BRAND = "André Iván";
@@ -155,6 +156,21 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.codeColor};
   }
 
+  nav {
+    a {
+      text-decoration: none;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        span {
+          color: ${({ theme }) => theme.colors.accent};
+        }
+      }
+    }
+  }
+
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
@@ -166,6 +182,25 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `;
+
+export const socials = {
+  instagram: {
+    component: FaInstagram,
+    url: "https://www.instagram.com/maitzethdrummer/",
+  },
+  github: {
+    component: FaGithub,
+    url: "https://github.com/maitzeth",
+  },
+  linkedin: {
+    component: FaLinkedinIn,
+    url: "https://www.linkedin.com/in/andre-ivan-mz/",
+  },
+  twitter: {
+    component: FaTwitter,
+    url: "https://twitter.com/Maitzeth",
+  },
+};
 
 export {
   navigation,
