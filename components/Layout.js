@@ -12,7 +12,7 @@ const Layout = ({ children, title, verticalCentered }) => (
     <Container tag="main" verticalCentered={verticalCentered}>
       {children}
     </Container>
-    {/* <Footer /> */}
+    <Footer />
   </>
 );
 

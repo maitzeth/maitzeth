@@ -1,11 +1,12 @@
 import { differenceInYears } from "date-fns";
 import Layout from "../components/Layout";
 import { Heading, Text, VStack, Image, Box } from "../components/MzUI";
+import useDesignUtils from "../hooks/useDesignUtils";
 
 const Home = () => {
+  const { isMobile } = useDesignUtils();
   const startingDate = new Date(2015, 1, 1);
   const endDate = new Date();
-
   const workingTime = differenceInYears(endDate, startingDate);
 
   return (
@@ -15,8 +16,8 @@ const Home = () => {
           <Image
             src="/images/myself.jpg"
             alt="me in front of pc"
-            width={200}
-            height={200}
+            width={isMobile ? 150 : 200}
+            height={isMobile ? 150 : 200}
             center
             bordered
           />

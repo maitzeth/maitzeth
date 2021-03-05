@@ -14,7 +14,12 @@ import ThemeToggler from "./ThemeToggler";
 
 const Navbar = () => {
   return (
-    <Box display="flex" alignItems="center" height="85px" tag="nav">
+    <Box
+      display="flex"
+      alignItems="center"
+      height={{ mobile: "50px", desktop: "85px" }}
+      tag="nav"
+    >
       <Container>
         <HStack>
           <HStack space={{ mobile: "none", desktop: "large" }}>
@@ -38,7 +43,16 @@ const Navbar = () => {
             </HStack>
           </HStack>
           <Spacer />
-          <HStack space="medium">
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection={{ mobile: "column", desktop: "row" }}
+            position={{ mobile: "fixed", desktop: "relative" }}
+            right={{ mobile: "0", desktop: "auto" }}
+            top={{ mobile: "50%", desktop: "auto" }}
+            width={{ mobile: "30px", desktop: "auto" }}
+            transform={{ mobile: "translateY(-50%)", desktop: "none" }}
+          >
             {Object.keys(socials).map((item, index) => (
               <SocialNetworkLink
                 tag="a"
@@ -50,11 +64,13 @@ const Navbar = () => {
                 alignItems="center"
                 justifyContent="center"
                 fontSize="text"
+                marginX={{ mobile: "none", desktop: "small" }}
+                marginY={{ mobile: "small", desktop: "none" }}
               >
                 {socials[item].component()}
               </SocialNetworkLink>
             ))}
-          </HStack>
+          </Box>
           <ThemeToggler />
         </HStack>
       </Container>

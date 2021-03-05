@@ -62,7 +62,7 @@ const useDesignUtils = () => {
     );
   };
 
-  return { generateProps, generateThemeProps };
+  return { generateProps, generateThemeProps, isMobile };
 };
 
 export default useDesignUtils;

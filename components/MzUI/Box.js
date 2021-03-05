@@ -50,6 +50,12 @@ const Box = ({
   letterSpacing,
   borderRadius,
   overflow,
+  position,
+  top,
+  bottom,
+  left,
+  right,
+  transform,
 
   ...viewProps
 }) => {
@@ -109,6 +115,12 @@ const Box = ({
     borderRadius: generateProps(borderRadius),
     overflow: generateProps(overflow),
     textTransform: generateProps(textTransform),
+    position: generateProps(position),
+    top: generateProps(top),
+    bottom: generateProps(bottom),
+    left: generateProps(left),
+    right: generateProps(right),
+    transform: generateProps(transform),
   };
 
   return <View as={tag} finalStyles={calculatedStyles} {...viewProps} />;

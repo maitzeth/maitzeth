@@ -2,10 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Box from "./Box";
 import { use100vh } from "react-div-100vh";
+import useDesignUtils from "../../hooks/useDesignUtils";
 
 const Container = ({ tag, children, verticalSpace, verticalCentered }) => {
+  const { isMobile } = useDesignUtils();
   const height = use100vh();
-  const realHeight = height && `${height}px`;
+  const NavAndFooterHeight = isMobile ? 110 : 145;
+
+  const realHeight = height && `${height - NavAndFooterHeight}px`;
 
   return (
     <Box
@@ -13,7 +17,7 @@ const Container = ({ tag, children, verticalSpace, verticalCentered }) => {
       maxWidth={{ mobile: "100%", desktop: "1140px" }}
       width="100%"
       marginX="auto"
-      paddingX={{ mobile: "small", desktop: "medium" }}
+      paddingX={{ mobile: "medium", desktop: "medium" }}
       marginY={verticalSpace}
       minHeight={verticalCentered && realHeight}
       display={verticalCentered && "flex"}
