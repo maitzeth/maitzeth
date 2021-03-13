@@ -38,8 +38,9 @@ const navigation = [
 
 const fontSizes = {
   small: fontSize(14),
-  text: fontSize(18),
-  heading: fontSize(22),
+  text: fontSize(16),
+  subTitle: fontSize(21),
+  heading: fontSize(28),
   xHeading: fontSize(42),
 };
 
@@ -49,6 +50,7 @@ const sizes = {
   medium: "1rem",
   large: "1.5rem",
   xlarge: "2rem",
+  xxlarge: "3rem",
   none: "none",
   auto: "auto",
 };
@@ -73,6 +75,8 @@ const lightTheme = {
     postItem: "#fff",
     footer: "#80808008",
     thinBorders: "#e9e6e6",
+    lightWhite: "rgba(186, 186, 186, 0.1)",
+    transparent: "transparent",
   },
   fontSizes,
   breakpoints: BREAKPOINTS,
@@ -91,6 +95,8 @@ const darkTheme = {
     postItem: "#0d1131",
     footer: "#0d1131",
     thinBorders: "#a4a7c1",
+    lightWhite: "rgba(186, 186, 186, 0.1)",
+    transparent: "transparent",
   },
   fontSizes,
   breakpoints: BREAKPOINTS,
@@ -179,6 +185,12 @@ const GlobalStyle = createGlobalStyle`
     p, h1, h2, h3, h4, h5, h6 {
       color: ${({ theme }) => theme.colors.text};
     }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
 `;

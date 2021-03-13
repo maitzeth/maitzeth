@@ -5,15 +5,15 @@ import { useMedia } from "react-use";
 import { useMemo } from "react";
 
 const useDesignUtils = () => {
-  const { theme } = useTheme();
+  const { activeTheme } = useTheme();
 
   const themeValues = useMemo(() => {
-    if (theme === "light") {
+    if (activeTheme === "light") {
       return lightTheme;
     }
 
     return darkTheme;
-  }, [theme]);
+  }, [activeTheme]);
 
   const isMobile = useMedia(`(max-width: ${themeValues.media.mobile}px)`);
 
@@ -62,7 +62,13 @@ const useDesignUtils = () => {
     );
   };
 
-  return { generateProps, generateThemeProps, isMobile };
+  return {
+    generateProps,
+    generateThemeProps,
+    isMobile,
+    themeValues,
+    activeTheme,
+  };
 };
 
 export default useDesignUtils;

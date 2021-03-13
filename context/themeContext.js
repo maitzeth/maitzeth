@@ -3,22 +3,22 @@ import React, { useState, createContext, useMemo } from "react";
 export const ThemeContext = createContext();
 
 export function CustomThemeProvider(props) {
-  const [theme, setTheme] = useState("light");
+  const [activeTheme, setActiveTheme] = useState("light");
 
   function themeToggler() {
-    if (theme === "light") {
-      setTheme("dark");
+    if (activeTheme === "light") {
+      setActiveTheme("dark");
     } else {
-      setTheme("light");
+      setActiveTheme("light");
     }
   }
 
   const values = useMemo(() => {
     return {
-      theme,
+      activeTheme,
       themeToggler,
     };
-  }, [theme]);
+  }, [activeTheme, themeToggler]);
 
   return <ThemeContext.Provider value={values} {...props} />;
 }

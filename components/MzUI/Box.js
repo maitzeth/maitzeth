@@ -40,6 +40,7 @@ const Box = ({
   alignItems,
   borderColor,
   borderWidth,
+  borderStyle,
   backgroundColor,
 
   fontSize,
@@ -56,7 +57,8 @@ const Box = ({
   left,
   right,
   transform,
-
+  cursor,
+  listStyle,
   ...viewProps
 }) => {
   const { generateProps, generateThemeProps } = useDesignUtils();
@@ -102,8 +104,9 @@ const Box = ({
     flexBasis: generateProps(flexBasis),
     justifyContent: generateProps(justifyContent),
     alignItems: generateProps(alignItems),
-    borderColor: generateProps(borderColor),
+    borderColor: generateThemeProps("colors", borderColor),
     borderWidth: generateProps(borderWidth),
+    borderStyle: generateProps(borderStyle),
 
     backgroundColor: generateThemeProps("colors", backgroundColor),
 
@@ -121,6 +124,8 @@ const Box = ({
     left: generateProps(left),
     right: generateProps(right),
     transform: generateProps(transform),
+    cursor: generateProps(cursor),
+    listStyle: generateProps(listStyle),
   };
 
   return <View as={tag} finalStyles={calculatedStyles} {...viewProps} />;

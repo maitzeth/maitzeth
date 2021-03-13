@@ -36,7 +36,7 @@ const Typography = ({
   children,
   ...rest
 }) => {
-  const { theme } = useTheme();
+  const { activeTheme } = useTheme();
 
   return (
     <Paragraph
@@ -48,7 +48,7 @@ const Typography = ({
       textTransform={textTransform}
       color={color}
       lineHeight={lineHeight}
-      themeColor={theme}
+      themeColor={activeTheme}
       {...rest}
     >
       {children}

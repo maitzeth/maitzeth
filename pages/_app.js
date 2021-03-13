@@ -30,8 +30,10 @@ function MyApp({ Component, pageProps }) {
     <SWRConfig value={SWROptions}>
       <CustomThemeProvider>
         <ThemeContext.Consumer>
-          {({ theme }) => (
-            <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+          {({ activeTheme }) => (
+            <ThemeProvider
+              theme={activeTheme === "dark" ? darkTheme : lightTheme}
+            >
               <GlobalStyle />
               <Component {...pageProps} />
               <ToastContainer

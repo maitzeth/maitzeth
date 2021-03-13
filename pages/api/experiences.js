@@ -4,30 +4,45 @@ export default (req, res) => {
   const data = [
     {
       id: 1,
-      company_name: "Freelance",
-      country: "Worldwide",
+      company_name: "Revolt.digital",
+      country: "Buenos Aires, Argentina",
+      start_date: format(new Date("2020-10-28"), "LLLL yyyy"),
       end_date: "Current",
       is_current: true,
-      position: "Freelancing Web Developer",
-      start_date: format(new Date("2014-12-31"), "LLLL yyyy"),
+      position: "Front-End Engineering",
       content: {
         title:
-          "Helping multiple people and companies with great success in their problems by using React and ecosystem (like redux, react-router-dom, formik, etc) as my main tool as a front-end development.",
+          "Solving problems by using React and their ecosystem (like redux, react-router-dom, formik, apollo-client, etc) as my main tool as a front-end development.",
         items: [
-          "Pixales - Helped a small startup by developing a Dashboard in React that will manage all Settings for a videogame made in Unity",
-          "Pocket - Worked with Revolt LLC by creating a Dashboard in NextJS and SPA where people can get a Loan.",
-          "Lifefy - Worked with Revolt LLC creating a Step Form Application where people can buy life insurances. (React)",
-          "Potenza - Worked with Revolt LLC by creating a storefront in nextjs that will help people buying oil lubricants and more. Using Nextjs for its versatility creating pages and using API routes for server-side authentication.",
-          "Helped many other clients by developing Wordpress or HTML/CSS sites for their products or services.",
+          "Pocket - Creating a Dashboard in NextJS and a SPA where people can get Loans.",
+          "Lifefy - Creating a 'Step By Step Form' where people can buy life insurances.",
+          "Potenza - Creating a storefront in nextjs that will help people buying oil lubricants and more. Using Nextjs for its versatility creating pages and using API routes for server-side authentication.",
+          "SimplEstate - Creating a portal where people can invest in real states projects. Here is where i was able to create my very first Design System.",
         ],
       },
     },
     {
       id: 2,
+      company_name: "Freelance",
+      country: "Remote",
+      end_date: "Current",
+      is_current: true,
+      position: "Front-End Consultant",
+      start_date: format(new Date("2014-12-31"), "LLLL yyyy"),
+      content: {
+        title: "Using any web development tools needed",
+        items: [
+          "Pixales - Helped a small startup by developing a Dashboard in React that will manage all Settings for a videogame made in Unity",
+          "Helped many other clients by developing Wordpress or HTML/CSS sites for their products or services.",
+        ],
+      },
+    },
+    {
+      id: 3,
       company_name: "Braintly",
       country: "Buenos Aires, Argentina",
       is_current: false,
-      position: "Senior Front-End Developer",
+      position: "Front-End Developer and React-Native Developer",
       start_date: format(new Date("2019-04-30"), "LLLL yyyy"),
       end_date: format(new Date("2020-10-19"), "LLLL yyyy"),
       content: {
@@ -42,7 +57,7 @@ export default (req, res) => {
       },
     },
     {
-      id: 3,
+      id: 4,
       company_name: "EGO Agency",
       country: "Buenos Aires, Argentina",
       is_current: false,
@@ -56,9 +71,9 @@ export default (req, res) => {
       },
     },
     {
-      id: 4,
+      id: 5,
       company_name: "Escuela Web LLC",
-      country: "Venezuela",
+      country: "Caracas, Venezuela",
       is_current: false,
       position: "HTML/CSS Instructor",
       start_date: format(new Date("2015-08-14"), "LLLL yyyy"),

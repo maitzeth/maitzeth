@@ -3,23 +3,26 @@ import Image from "next/image";
 import styled from "styled-components";
 import { themeTransition } from "../config";
 import { useTheme } from "../context/themeContext";
+import { Box } from "../components/MzUI";
 
 const TechItem = ({ ...props }) => {
-  const { theme } = useTheme();
+  const { activeTheme } = useTheme();
 
   return (
-    <Wrapper useTheme={theme}>
+    <View
+      backgroundColor={activeTheme === "dark" ? "white" : "transparent"}
+      useTheme={activeTheme}
+      padding="medium"
+      borderRadius="10px"
+      flex={{ mobile: "0 0 25%", desktop: "0 0 15%" }}
+      textAlign="center"
+    >
       <Image {...props} />
-    </Wrapper>
+    </View>
   );
 };
 
-const Wrapper = styled.div`
-  background-color: ${({ useTheme }) =>
-    useTheme === "dark" ? "white" : "transparent"};
-  padding: 10px;
-  border-radius: 10px;
-
+const View = styled(Box)`
   img {
     transition: ${themeTransition};
     filter: grayscale(1);

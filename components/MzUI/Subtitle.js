@@ -6,7 +6,7 @@ const Subtitle = ({ children, tag = "h1", weight, align, textTransform }) => {
   return (
     <Box
       tag={tag}
-      fontSize="heading"
+      fontSize={{ mobile: "subTitle", desktop: "heading" }}
       fontWeight={weight}
       textAlign={align}
       color="black"

@@ -4,11 +4,11 @@ import { useTheme } from "../context/themeContext";
 import { device } from "../config";
 
 const ThemeToggler = () => {
-  const { theme, themeToggler } = useTheme();
+  const { activeTheme, themeToggler } = useTheme();
 
   return (
     <ButtonWrapper type="button" aria-label="Activate" onClick={themeToggler}>
-      <ButtonInner theme={theme} />
+      <ButtonInner theme={activeTheme} />
     </ButtonWrapper>
   );
 };

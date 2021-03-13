@@ -1,4 +1,9 @@
 /* Make clicks pass-through */
+
+:root {
+  --primary-color: 
+}
+
 #nprogress {
   pointer-events: none;
 }
@@ -9,9 +14,8 @@
   z-index: 1031;
   top: 0;
   left: 0;
-
   width: 100%;
-  height: 5px;
+  height: 2.5px;
 }
 
 /* Fancy blur effect */
@@ -21,7 +25,6 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #56bdb6, 0 0 5px #56bdb6;
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -44,8 +47,6 @@
   box-sizing: border-box;
 
   border: solid 2px transparent;
-  border-top-color: #56bdb6;
-  border-left-color: #56bdb6;
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;

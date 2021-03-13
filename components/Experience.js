@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Typography from "./Typography";
-import ExperienceContent from "./ExperienceContent";
+import React from "react";
 import { FiChevronDown } from "react-icons/fi";
-import { useTheme } from "../context/themeContext";
-import { lightTheme, darkTheme, themeTransition } from "../config";
+import styled from "styled-components";
+import {
+  Collapser,
+  HStack,
+  Spacer,
+  Subtitle,
+  Text,
+  VStack,
+  Box,
+  SmallText,
+} from "../components/MzUI";
+import { themeTransition } from "../config";
+import useDesignUtils from "../hooks/useDesignUtils";
+import ExperienceContent from "./ExperienceContent";
 
 const Experience = ({
   companyName,
@@ -15,103 +24,71 @@ const Experience = ({
   country,
   content,
 }) => {
-  const { theme } = useTheme();
-  const [isOpen, setOpen] = useState(false);
-
-  const toggleOpen = () => setOpen((prev) => !prev);
+  const { themeValues, activeTheme } = useDesignUtils();
 
   return (
-    <Wrapper>
-      <Inner onClick={toggleOpen}>
-        <DotAccent isCurrent={isCurrent} />
-        <Content  isClickeable={content}>
-          <Typography fontSize={16} fontWeight="400" color="gray">
-            {startDate} - {endDate} · {country}
-          </Typography>
-          <Typography as="h3" fontSize={24} fontWeight="bold">
-            {position}
-          </Typography>
-          <Typography fontSize={16} fontWeight={600} color="gray">
-            {companyName}
-          </Typography>
-        </Content>
-        {content && (
-          <IconWrapper isOpen={isOpen}>
-
-          <FiChevronDown
-            size={28}
-            color={
-              theme === "light"
-                ? lightTheme.colors.black
-                : darkTheme.colors.text
-              }
+    <Collapser
+      content={({ isOpen }) => {
+        return (
+          <ExperienceContent isOpen={isOpen}>
+            <VStack space="medium">
+              {content.title && <Text weight="strong">{content.title}</Text>}
+              <Box paddingLeft="large">
+                <VStack tag="ul" space="medium">
+                  {content.items.map((work, index) => (
+                    <Box tag="li" listStyle="disc" key={index}>
+                      <SmallText>{work}</SmallText>
+                    </Box>
+                  ))}
+                </VStack>
+              </Box>
+            </VStack>
+          </ExperienceContent>
+        );
+      }}
+      render={({ isOpen }) => (
+        <HStack alignItems="center" space="medium">
+          <Box
+            width="1rem"
+            height="1rem"
+            borderWidth="2px"
+            borderStyle="solid"
+            borderColor="accent"
+            borderRadius="100%"
+            backgroundColor={isCurrent ? "accent" : "transparent"}
+          />
+          <VStack space="small">
+            <Text>
+              {startDate} - {endDate} · {country}
+            </Text>
+            <Subtitle weight="strong">{position}</Subtitle>
+            <Text weight="strong" color="gray">
+              {companyName}
+            </Text>
+          </VStack>
+          <Spacer />
+          {content && (
+            <IconWrapper isOpen={isOpen}>
+              <FiChevronDown
+                size={28}
+                color={
+                  activeTheme === "light"
+                    ? themeValues.colors.black
+                    : themeValues.colors.text
+                }
               />
-              </IconWrapper>
-        )}
-      </Inner>
-      {content && (
-        <ExperienceContent isOpen={isOpen}>
-          {content.title && (
-            <Typography tag="h4" fontSize={16} fontWeight="bold">
-              {content.title}
-            </Typography>
+            </IconWrapper>
           )}
-          <ul>
-            {content.items.map((work, index) => (
-              <li key={index}>
-                <Typography fontSize={12}>{work}</Typography>
-              </li>
-            ))}
-          </ul>
-        </ExperienceContent>
+        </HStack>
       )}
-    </Wrapper>
+    />
   );
 };
 
-const Wrapper = styled.div`
-  margin-top: 2.5rem;
-`;
-
-const Inner = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const DotAccent = styled.div`
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid ${({ theme }) => theme.colors.accent};
-  border-radius: 100%;
-  background-color: ${({ isCurrent, theme }) =>
-    isCurrent ? theme.colors.accent : "transparent"};
-`;
-
-const Content = styled.div`
-  flex: 1;
-  margin-left: 1rem;
-
-  ${({ isClickeable }) =>
-    isClickeable &&
-    `
-    cursor: pointer;
-  `}
-
-  h3,
-  p {
-    margin: 0;
-  }
-
-  h3 {
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-`;
-
 const IconWrapper = styled.div`
   svg {
-    transition: ${themeTransition}; 
-    transform: rotate(${({ isOpen }) => isOpen ? '180deg' : '0deg'});
+    transition: ${themeTransition};
+    transform: rotate(${({ isOpen }) => (isOpen ? "180deg" : "0deg")});
   }
 `;
 

@@ -7,3 +7,5 @@ export { default as Container } from "./Container";
 export { default as Image } from "./Image";
 export { default as Subtitle } from "./Subtitle";
 export { default as Spacer } from "./Spacer";
+export { default as Collapser } from "./Collapser";
+export { default as SmallText } from "./SmallText";

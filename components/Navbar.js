@@ -22,7 +22,10 @@ const Navbar = () => {
     >
       <Container>
         <HStack>
-          <HStack space={{ mobile: "none", desktop: "large" }}>
+          <HStack
+            space={{ mobile: "none", desktop: "large" }}
+            alignItems="center"
+          >
             <Box display={{ mobile: "none", desktop: "block" }}>
               <Link href="/">
                 <a>
@@ -32,7 +35,7 @@ const Navbar = () => {
                 </a>
               </Link>
             </Box>
-            <HStack space="medium">
+            <HStack tag="ul" space="large">
               {navigation.map((item, index) => (
                 <Link key={index} href={item.to}>
                   <a>
