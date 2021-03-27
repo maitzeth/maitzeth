@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import useSWR from "swr";
 import SkeletonLoader from "../components/SkeletonLoader";
-// import Typography from "../components/Typography";
 import Experience from "../components/Experience";
 import TechItem from "../components/TechItem";
 
@@ -10,8 +9,7 @@ import { VStack, Box, Heading } from "../components/MzUI";
 const About = () => {
   const { data: experiencesData } = useSWR("/api/experiences");
   const { data: techsData } = useSWR("/api/techs");
-  // const { data: educationData } = useSWR("/api/education");
-  // const { data } = useSWR("/api/playground");
+  const { data: educationData } = useSWR("/api/education");
 
   const renderWorkExperience = () => {
     return (
@@ -66,30 +64,32 @@ const About = () => {
     );
   };
 
-  // const renderEducation = () => {
-  //   return (
-  //     <>
-  //       <Typography as="h2" fontSize={28} fontWeight="bolder" lineHeight={1.5}>
-  //         Education
-  //       </Typography>
-  //       {!educationData ? (
-  //         <SkeletonLoader width={300} height={50} count={4} />
-  //       ) : (
-  //         educationData?.map((work) => (
-  //           <Experience
-  //             key={work.id}
-  //             companyName={work.company_name}
-  //             startDate={work.start_date}
-  //             endDate={work.end_date}
-  //             position={work.position}
-  //             isCurrent={work.is_current}
-  //             country={work.country}
-  //           />
-  //         ))
-  //       )}
-  //     </>
-  //   );
-  // };
+  const renderEducation = () => {
+    return (
+      <VStack space="xxlarge">
+        <Heading weight="strong" tag="h2">
+          Education
+        </Heading>
+        {!educationData ? (
+          <SkeletonLoader width={300} height={50} count={4} />
+        ) : (
+          <VStack tag="section" space="xxlarge">
+            {educationData?.map((work) => (
+              <Experience
+                key={work.id}
+                companyName={work.company_name}
+                startDate={work.start_date}
+                endDate={work.end_date}
+                position={work.position}
+                isCurrent={work.is_current}
+                country={work.country}
+              />
+            ))}
+          </VStack>
+        )}
+      </VStack>
+    );
+  };
 
   return (
     <Layout title="About me">
@@ -97,6 +97,7 @@ const About = () => {
         <VStack space="xxlarge">
           {renderWorkExperience()}
           {renderSkills()}
+          {renderEducation()}
         </VStack>
       </Box>
     </Layout>

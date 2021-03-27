@@ -16,6 +16,7 @@ const TechItem = ({ ...props }) => {
       borderRadius="10px"
       flex={{ mobile: "0 0 25%", desktop: "0 0 15%" }}
       textAlign="center"
+      margin="medium"
     >
       <Image {...props} />
     </View>

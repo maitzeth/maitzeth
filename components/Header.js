@@ -43,7 +43,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  title: "Backoffice",
+  title: "Home",
 };
 
 export default Header;

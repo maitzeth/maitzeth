@@ -1,28 +1,19 @@
 import React from "react";
-import styled from "styled-components";
-import Typography from "./Typography";
 import { BRAND } from "../config";
+import { Text, Box } from "./MzUI";
 
 const Footer = () => {
   return (
-    <Wrapper>
-      <Typography fontSize={13} fontWeight="500">
-        Coded with ❤️ by {BRAND} © 2020
-      </Typography>
-    </Wrapper>
+    <Box
+      height="60px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      backgroundColor="footer"
+    >
+      <Text>Coded with ❤️ by {BRAND} © 2020</Text>
+    </Box>
   );
 };
-
-const Wrapper = styled.footer`
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) => props.theme.colors.footer};
-
-  p {
-    margin: 0;
-  }
-`;
 
 export default Footer;

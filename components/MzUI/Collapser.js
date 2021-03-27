@@ -11,7 +11,7 @@ const Collapser = ({ render, content }) => {
       <Box cursor={content && "pointer"} onClick={toggleOpen}>
         {render({ isOpen })}
       </Box>
-      {content({ isOpen })}
+      {content && content({ isOpen })}
     </article>
   );
 };
