@@ -30,27 +30,18 @@ const Experience = ({
     <Collapser
       content={
         content
-          ? ({ isOpen }) => {
-              return (
-                <ExperienceContent isOpen={isOpen}>
-                  <VStack space="medium">
-                    {content?.title && (
-                      <Text weight="strong">{content.title}</Text>
-                    )}
-                    <Box paddingLeft="large">
-                      <VStack tag="ul" space="medium">
-                        {content.items.map((work, index) => (
-                          <Box tag="li" listStyle="disc" key={index}>
-                            <SmallText>{work}</SmallText>
-                          </Box>
-                        ))}
-                      </VStack>
-                    </Box>
-                  </VStack>
-                </ExperienceContent>
-              );
-            }
-          : false
+          ? ({ isOpen }) => (
+              <ExperienceContent isOpen={isOpen}>
+                <VStack space="medium">
+                  {content?.title && (
+                    <Text weight="strong" textTransform="uppercase">
+                      {content.title}
+                    </Text>
+                  )}
+                </VStack>
+              </ExperienceContent>
+            )
+          : null
       }
       render={({ isOpen }) => (
         <HStack alignItems="center" space="medium">

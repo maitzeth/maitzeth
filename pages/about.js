@@ -93,7 +93,7 @@ const About = () => {
 
   return (
     <Layout title="About me">
-      <Box marginY="xlarge">
+      <Box marginY="xxlarge">
         <VStack space="xxlarge">
           {renderWorkExperience()}
           {renderSkills()}

@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Box from "./Box";
 
-const Text = ({ children, tag = "p", weight, align, accent }) => {
+const Text = ({
+  children,
+  tag = "p",
+  weight,
+  align,
+  accent,
+  textTransform,
+}) => {
   return (
     <Box
       tag={tag}
@@ -10,6 +17,7 @@ const Text = ({ children, tag = "p", weight, align, accent }) => {
       fontWeight={weight}
       textAlign={align}
       color={accent ? "accent" : "text"}
+      textTransform={textTransform}
     >
       {children}
     </Box>
