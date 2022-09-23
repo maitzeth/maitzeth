@@ -12,6 +12,14 @@ module.exports = {
         black: "#333333",
         "light-black": "#4d4d4d",
         navbar: "#333333d4",
+        "window-red": "#e5635b",
+        "window-green": "#39ac48",
+      },
+      width: {
+        desktop: "768px",
+      },
+      height: {
+        "window-full": "calc(100vh - 35px)",
       },
     },
   },

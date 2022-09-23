@@ -5,3 +5,7 @@
 body {
   @apply overflow-hidden;
 }
+
+/* .window-full-height {
+  height: calc(100vh - 35px);
+} */
