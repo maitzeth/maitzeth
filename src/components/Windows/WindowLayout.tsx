@@ -11,7 +11,7 @@ type Props = {
   title: string;
 };
 
-const defaultPosition = { x: 100, y: 100 };
+const defaultPosition = { x: 250, y: 250 };
 
 const WindowLayout = ({ children, title }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);
@@ -32,8 +32,8 @@ const WindowLayout = ({ children, title }: Props) => {
       setControlledPosition(prevPosition => {
         return {
           ...prevPosition,
-          x: prevFullScreen ? 250 : 0,
-          y: prevFullScreen ? 250 : 0,
+          x: prevFullScreen ? defaultPosition.x : 0,
+          y: prevFullScreen ? defaultPosition.y : 0,
         };
       });
 
