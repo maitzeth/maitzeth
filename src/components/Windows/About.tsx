@@ -3,7 +3,6 @@ import { differenceInYears } from 'date-fns';
 import WindowLayout from './WindowLayout';
 import { Stack, Title, Paragraph } from '../UI';
 import PhotoOfMe from '../../assets/me.png';
-import Box from '../UI/Box';
 
 const About = () => {
   const workingTime = differenceInYears(new Date(), new Date(2015, 1, 1));
@@ -11,7 +10,7 @@ const About = () => {
   return (
     <WindowLayout title="About me">
       <section className="p-4">
-        <Stack component="article" direction={{ mobile: 'vertical', desktop: 'horizontal' }} space={{ mobile: 5, desktop: 5 }} className="items-center">
+        <Stack component="article" direction={{ mobile: 'vertical', desktop: 'horizontal' }} className="items-center">
           <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 2, desktop: 2 }}>
             <Title component='h1'>Hello there 👋, I'm André Iván.</Title>
             <Paragraph>
@@ -34,9 +33,7 @@ const About = () => {
             </Paragraph>
           </Stack>
           <div>
-            <Box display={{ mobile: 'none', desktop: 'flex' }}>
-              <img src={PhotoOfMe} alt="photo of me and my cats" className="h-auto max-w-full rounded-xl shadow-2xl" />
-            </Box>
+            <img src={PhotoOfMe} alt="photo of me and my cats" className="h-auto max-w-full rounded-xl shadow-2xl" />
           </div>
         </Stack>
       </section>
