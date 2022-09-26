@@ -10,9 +10,9 @@ const About = () => {
     <WindowLayout title="About me">
       <div>
         <section>
-          <Stack direction={{ mobile: 'vertical', desktop: 'horizontal' }}>
+          <Stack direction={{ mobile: 'vertical' }} space={{ mobile: 3 }}>
             <Title component='h1'>Hello there 👋, I'm André Iván.</Title>
-            <Stack>
+            <Stack direction={{ mobile: 'vertical' }} space={{ mobile: 3 }}>
               <Paragraph>
                 I'm a Venezuelan developer based in Argentina. I've been working as
                 a consultant for many clients and companies. Always worked as a{" "}
