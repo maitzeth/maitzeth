@@ -11,7 +11,7 @@ type Props = {
   title: string;
 };
 
-const defaultPosition = { x: 250, y: 250 };
+const defaultPosition = { x: 150, y: 150 };
 
 const WindowLayout = ({ children, title }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);

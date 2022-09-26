@@ -4,8 +4,8 @@ export enum WINDOWS {
 }
 
 export interface Responsive<T> {
-  mobile?: T,
-  desktop?: T
+  mobile: T,
+  desktop: T
 }
 
 export type Directions = 'vertical' | 'horizontal';

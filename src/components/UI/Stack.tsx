@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { Responsive, Directions, SizeValues } from '../../types';
-import { useWindowSize, useMount } from 'react-use';
 import { getWindowSizes } from '../../utils';
 
 type Props = {
@@ -9,9 +8,10 @@ type Props = {
   direction: Responsive<Directions>;
   space: Responsive<SizeValues>;
   component?: 'span' | 'div' | 'article' | 'section';
+  className?: string;
 }
 
-const Stack = ({ children, direction, component = 'div', space }: Props) => {
+const Stack = ({ children, direction, component = 'div', space, className }: Props) => {
   const sizes = getWindowSizes();
   const [directionClass, setDirectionClass] = React.useState('');
   const [xSpacing, setXSpacing] = React.useState('');
@@ -39,11 +39,11 @@ const Stack = ({ children, direction, component = 'div', space }: Props) => {
     let classNames = '';
 
     if (direction.desktop === 'vertical' && isDesktop) {
-      classNames += `space-y-${space.desktop} `;
+      classNames += `space-y-${space.desktop}`;
     }
 
     if (direction.mobile === 'vertical' && isMobile) {
-      classNames += `space-y-${space.mobile} `;
+      classNames += `space-y-${space.mobile}`;
     }
 
     setYSpacing(classNames);
@@ -53,34 +53,27 @@ const Stack = ({ children, direction, component = 'div', space }: Props) => {
     let classNames = '';
 
     if (direction.desktop === 'horizontal' && isDesktop) {
-      classNames += `space-x-${space.desktop} `;
+      classNames += `space-x-${space.desktop}`;
     }
 
     if (direction.mobile === 'horizontal' && isMobile) {
-      classNames += `space-x-${space.mobile} `;
+      classNames += `space-x-${space.mobile}`;
     }
 
     setXSpacing(classNames);
   }
-
-  useMount(() => {
-    const isDesktop = window.innerWidth > sizes.md;
-    const isMobile = window.innerWidth <= sizes.md;
-    directionClassHandler(isMobile, isDesktop);
-    getYSpacing(isMobile, isDesktop);
-    getXSpacing(isMobile, isDesktop);
-  });
   
   useEffect(() => {
     const handler = () => {
-      const isDesktop = window.innerWidth > sizes.md;
-      const isMobile = window.innerWidth <= sizes.md;
-
+      const isMobile = window.innerWidth <= sizes.lg;
+      const isDesktop = window.innerWidth > sizes.lg;
+      
       directionClassHandler(isMobile, isDesktop);
       getYSpacing(isMobile, isDesktop);
       getXSpacing(isMobile, isDesktop);
     };
 
+    handler();
     window.addEventListener('resize', handler);
 
     return () => {
@@ -88,11 +81,15 @@ const Stack = ({ children, direction, component = 'div', space }: Props) => {
     }
   }, []);
 
-  const stackClassName = classNames(directionClass, xSpacing, ySpacing);
+  const stackClassName = classNames(directionClass, xSpacing, ySpacing, className);
 
-  return React.createElement(component, {
-    className: stackClassName
-  }, children);
+  if (stackClassName.length > 0) { 
+    return React.createElement(component, {
+      className: stackClassName
+    }, children);
+  }
+
+  return null;
 };
 
 export default Stack;
