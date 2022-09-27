@@ -15,7 +15,7 @@ body {
     @apply flex;
 
     @for $i from 1 through $sizes {
-      &.stack__space--#{$i} * + * {
+      &.stack__space--#{$i} > * + * {
         @if $i == 1 {
           margin-inline-start: calc(1px * calc(1 - 0));
         } @else {
@@ -29,7 +29,7 @@ body {
     @apply block;
 
     @for $i from 1 through $sizes {
-      &.stack__space--#{$i} * + * {
+      &.stack__space--#{$i} > * + * {
         @if $i == 1 {
           margin-block-start: calc(1px * calc(1 - 0));
         } @else {

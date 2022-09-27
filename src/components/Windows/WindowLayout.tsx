@@ -5,11 +5,30 @@ import { FiX, FiMaximize2, FiMinimize2 } from 'react-icons/fi';
 import { openedWindow } from '../../jotai';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
+import {motion, AnimatePresence} from "framer-motion"
 
 type Props = {
   children: React.ReactElement;
   title: string;
 };
+
+const boxAnimation = {
+  key: "box",
+  initial: {
+    y: "15%",
+    opacity: 0,
+    scale: 0.8,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  transition: {
+    duration: 0.15,
+    ease: "backInOut",
+  },
+}
 
 const defaultPosition = { x: 150, y: 150 };
 
@@ -45,44 +64,50 @@ const WindowLayout = ({ children, title }: Props) => {
 
   if (rootElement) {
     return ReactDOM.createPortal(
-      <Draggable
-        bounds="body"
-        handle=".handle"
-        position={controlledPosition}
-        scale={1}
-        onStop={onControlledDragStop}
-      >
-        <div
-          className={
-            classNames('shadow-2xl', {
-              'max-w-full h-window-full': isFullScreen,
-              'max-w-4xl': !isFullScreen,
-            })
-          }
-          onDoubleClick={handleFullScreen}
-        >
-          <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer">
-            <div className="flex items-center space-x-2">
-              <div>
-                <button type="button" className="bg-window-red w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleCloseWindow}>
-                  <FiX color="#fff" size="14" />
-                </button>
+      <AnimatePresence>
+        <div className="bg-light-black bg-opacity-25 absolute h-screen w-full">
+          <motion.div {...boxAnimation}>
+            <Draggable
+              bounds="body"
+              handle=".handle"
+              position={controlledPosition}
+              scale={1}
+              onStop={onControlledDragStop}
+            >
+              <div
+                className={
+                  classNames('shadow-2xl', {
+                    'max-w-full h-window-full': isFullScreen,
+                    'max-w-4xl': !isFullScreen,
+                  })
+                }
+                onDoubleClick={handleFullScreen}
+              >
+                <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer">
+                  <div className="flex items-center space-x-2">
+                    <div>
+                      <button type="button" className="bg-window-red w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleCloseWindow}>
+                        <FiX color="#fff" size="14" />
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" className="bg-window-green w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleFullScreen}>
+                        {isFullScreen ? <FiMinimize2 color="#fff" size="10" /> : <FiMaximize2 color="#fff" size="10" />}
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-sm text-white font-semibold">{title}</h2>
+                  </div>
+                </header>
+                <section className="bg-gray-100 p-4 rounded-b-lg h-full">
+                  {children}
+                </section>
               </div>
-              <div>
-                <button type="button" className="bg-window-green w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleFullScreen}>
-                  {isFullScreen ? <FiMinimize2 color="#fff" size="10" /> : <FiMaximize2 color="#fff" size="10" />}
-                </button>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-sm text-white font-semibold">{title}</h2>
-            </div>
-          </header>
-          <section className="bg-gray-100 p-4 rounded-b-lg h-full">
-            {children}
-          </section>
+            </Draggable>
+          </motion.div>
         </div>
-      </Draggable>,
+      </AnimatePresence>,
       rootElement,
     );
   }
