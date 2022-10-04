@@ -86,12 +86,12 @@ const WindowLayout = ({ children, title }: Props) => {
                 <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer">
                   <div className="flex items-center space-x-2">
                     <div>
-                      <button type="button" className="bg-window-red w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleCloseWindow}>
+                      <button type="button" className="window-button bg-window-red" onClick={handleCloseWindow}>
                         <FiX color="#fff" size="14" />
                       </button>
                     </div>
                     <div>
-                      <button type="button" className="bg-window-green w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all" onClick={handleFullScreen}>
+                      <button type="button" className="window-button bg-window-green" onClick={handleFullScreen}>
                         {isFullScreen ? <FiMinimize2 color="#fff" size="10" /> : <FiMaximize2 color="#fff" size="10" />}
                       </button>
                     </div>

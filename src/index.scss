@@ -19,7 +19,7 @@ body {
         @if $i == 1 {
           margin-inline-start: calc(1px * calc(1 - 0));
         } @else {
-          margin-inline-start: #{($i / $margin_val)}rem;
+          margin-inline-start: #{calc($i / $margin_val)}rem;
         }
       }
     }
@@ -33,9 +33,23 @@ body {
         @if $i == 1 {
           margin-block-start: calc(1px * calc(1 - 0));
         } @else {
-          margin-block-start: #{($i / $margin_val)}rem;
+          margin-block-start: #{calc($i / $margin_val)}rem;
         }
       }
+    }
+  }
+}
+
+.window-button {
+  @apply w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-all;
+
+  > svg {
+    @apply transition-all opacity-0;
+  }
+
+  &:hover {
+    > svg {
+      @apply opacity-100;
     }
   }
 }
