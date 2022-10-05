@@ -1,58 +1,56 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import WindowLayout from './WindowLayout';
-import { WORK_EXPERIENCE, DATE_FORMAT } from '../../utils/constants';
-import { format, isValid } from 'date-fns';
-import { Container, Stack, Paragraph } from '../UI';
-import { FiMapPin, FiUsers, FiCalendar } from 'react-icons/fi';
+import { WORK_EXPERIENCE } from '../../utils/constants';
+import { Container, Box } from '../UI';
+import { motion } from "framer-motion";
+import WorkExperienceTab from '../WorkExperienceTab';
 
 const Portfolio = () => {
+  const [selectedExperience, setOpenSelectedExperience] = useState<number | null>(null);
+
+  const variants = {
+    closed: { height: 0, overflow: 'hidden', opacity: 0 },
+    open: { height: 'auto', overflow: 'initial', opacity: 1 },
+  };
+
+  const handleClickOpenTab = useCallback((tabId: number) => {
+    setOpenSelectedExperience(prev => {
+      if (prev === tabId) {
+        return null;
+      }
+
+      return tabId;
+    });
+  }, []);
+
   return (
     <WindowLayout title="Portfolio">
       <Container size={{ mobile: 'full', desktop: 'large' }}>
         <div className="overflow-hidden bg-white drop-shadow-lg sm:rounded-md">
           <ul role="list" className="divide-y divide-gray-200">
             {WORK_EXPERIENCE.map((work, index) => {
-              const isValidDate = isValid(new Date(work.to_date));
-
-              const fromDate = format(new Date(work.from_date), DATE_FORMAT);
-              const toDate = isValidDate ? format(new Date(work.from_date), DATE_FORMAT) : work.to_date;
-
-              const fromDateTimeAcc = format(new Date(work.from_date), 'yyyy-MM-dd');
-              const toDateTimeAcc = isValidDate ? format(new Date(work.to_date), 'yyyy-MM-dd') : work.to_date;
-
               return (
-                <li key={`work-experience-item-${index}`}>
-                  <div className="px-4 py-4 sm:px-6">
-                    <Stack direction={{ mobile: 'vertical', desktop: 'horizontal' }} className="items-center justify-between">
-                      <div className="flex items-center">
-                        <p className="truncate text-sm font-bold text-light-black uppercase">{work.position}</p>
-                        <div className="ml-2 flex flex-shrink-0">
-                          <p className="inline-flex rounded-full bg-light-black px-3 py-1 text-xs font-semibold leading-5 text-white">{work.contract}</p>
-                        </div>
-                      </div>
-                      <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 1, desktop: 3 }}>
-                        <Paragraph size="xs" color="gray" className="mt-2 flex items-center sm:mt-0 sm:ml-6 lg:justify-end">
-                          <FiMapPin size={16} className="mr-1" />
-                          {work.location}
-                        </Paragraph>
-                        <Paragraph size="xs" color="gray" className="flex items-center lg:justify-end">
-                          <FiUsers size={16} className="mr-1" />
-                          {work.place}
-                        </Paragraph>
-                        <div className="mt-2 flex items-center sm:mt-0 lg:justify-end">
-                          <FiCalendar size={16} className="mr-1" />
-                          <Paragraph size="xs" color="gray">
-                            <time dateTime={fromDateTimeAcc}>{fromDate}</time>
-                            {' - '}
-                            {isValidDate ? (
-                              <time dateTime={toDateTimeAcc}>{toDate}</time>
-                            ) : toDateTimeAcc}
-                          </Paragraph>
-                        </div>
-                      </Stack>
-                    </Stack>
-                  </div>
-                </li>
+                <Box component="li" key={`work-experience-item-${index}`}>
+                  <WorkExperienceTab
+                    id={index}
+                    contract={work.contract}
+                    from_date={work.from_date}
+                    to_date={work.to_date}
+                    location={work.location}
+                    onClick={handleClickOpenTab}
+                    place={work.place}
+                    position={work.position}
+                  />
+                  <motion.div
+                    animate={selectedExperience === index ? "open" : "closed"}
+                    variants={variants}
+                    initial={false}
+                  >
+                    <Box padding={{ mobile: 'medium', desktop: 'large' }}>
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem amet atque omnis mollitia deleniti. Sed minus debitis dolor. Harum beatae quae explicabo natus officia eveniet, dolores sunt asperiores optio magni.</p>
+                    </Box>
+                  </motion.div>
+                </Box>
               );
             }).reverse()}
           </ul>

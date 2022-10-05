@@ -6,7 +6,7 @@ type Measures = 'small' | 'medium' | 'large';
 
 type Props = {
   children: React.ReactNode;
-  component?: 'span' | 'div' | 'article' | 'section';
+  component?: 'span' | 'div' | 'article' | 'section' | 'li' | 'ul' | 'ol';
   className?: string;
   display?: Responsive<'none' | 'block' | 'flex'>;
   padding?: Responsive<Measures>;

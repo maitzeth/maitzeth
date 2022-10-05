@@ -81,9 +81,8 @@ const WindowLayout = ({ children, title }: Props) => {
                     'max-w-4xl': !isFullScreen,
                   })
                 }
-                onDoubleClick={handleFullScreen}
               >
-                <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer">
+                <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer" onDoubleClick={handleFullScreen}>
                   <div className="flex items-center space-x-2">
                     <div>
                       <button type="button" className="window-button bg-window-red" onClick={handleCloseWindow}>
