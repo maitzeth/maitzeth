@@ -1,18 +1,20 @@
 import React from 'react';
 import { Box, Paragraph, Stack } from './UI';
-import { THEME } from '../types';
 import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
   title: string,
-  theme?: THEME;
+  theme?: 'light' | 'dark';
   size?: 'sm' | 'md' | 'lg';
 };
 
-const Widget = ({ children, title = 'Widget Title', size = 'md' }: Props) => {
-  const widgetClassnames = classNames('rounded-xl shadow-lg hover:shadow-xl p-6 border border-gray-900 bg-black transition duration-150', {
+const Widget = ({ children, title = 'Widget Title', size = 'md', theme = 'dark' }: Props) => {
+  const widgetClassnames = classNames('rounded-xl shadow-lg hover:shadow-xl p-6 transition duration-150', {
+    'w-96': size === 'lg',
     'w-80': size === 'md',
+    'bg-black': theme === 'dark',
+    'bg-gray-200': theme === 'light',
   });
 
   return (

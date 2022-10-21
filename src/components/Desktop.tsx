@@ -8,9 +8,10 @@ import { Box } from './UI';
 import Icon from './Icon';
 import Widget from './Widget';
 import Steam from './Widgets/Steam';
+import YuGiOhCard from './Widgets/YuGiOhCard';
 
 const Desktop = () => {
-  const [, setWindow] = useAtom(openedWindow);
+  const { 1: setWindow } = useAtom(openedWindow);
 
   const handleOpenWindow = (windowToOpen: WINDOWS) => {
     setWindow(windowToOpen);
@@ -30,7 +31,7 @@ const Desktop = () => {
   ];
 
   return (
-    <Box display={{ mobile: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">
+    <Box display={{ mobile: 'block', desktop: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">
       <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} className="flex-col flex-1">
         {icons.map((icon, index) => (
           <div key={`icon-${index}`} className="w-24 text-center">
@@ -38,9 +39,20 @@ const Desktop = () => {
           </div>
         ))}
       </Box>
-      <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} alignItems={{ mobile: 'right' }} className="flex-col flex-1">
+      <Box
+        component="section"
+        paddingX={{ mobile: 'medium' }}
+        display={{ mobile: 'flex' }}
+        gap={{ mobile: 'large' }}
+        alignItems={{ mobile: 'start', desktop: 'right' }}
+        className="flex-col flex-1"
+        marginTop={{ mobile: 'large', desktop: 'none' }}
+      >
         <Widget title="Steam Status">
           <Steam />
+        </Widget>
+        <Widget title="Your next yugi card?" size="sm" theme="light">
+          <YuGiOhCard />
         </Widget>
       </Box>
     </Box>

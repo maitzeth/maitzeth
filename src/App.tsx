@@ -4,8 +4,10 @@ import { useAtom } from 'jotai';
 import { WINDOWS } from './types';
 import About from './components/Windows/About';
 import Portfolio from './components/Windows/Portfolio';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const App = () => {
+  const queryClient = new QueryClient();
   const [selectedWindow] = useAtom(openedWindow);
 
   const availableWindows = {
@@ -14,11 +16,13 @@ const App = () => {
   };
 
   return (
-    <main id="app" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
-      <Layout>
-        {selectedWindow && availableWindows[selectedWindow]}
-      </Layout>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <main id="app" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
+        <Layout>
+          {selectedWindow && availableWindows[selectedWindow]}
+        </Layout>
+      </main>
+    </QueryClientProvider>
   );
 };
 
