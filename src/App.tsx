@@ -14,11 +14,11 @@ const App = () => {
   };
 
   return (
-    <div id="app" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
+    <main id="app" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
       <Layout>
         {selectedWindow && availableWindows[selectedWindow]}
       </Layout>
-    </div>
+    </main>
   );
 };
 

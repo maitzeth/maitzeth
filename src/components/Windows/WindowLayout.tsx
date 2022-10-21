@@ -4,37 +4,21 @@ import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { FiX, FiMaximize2, FiMinimize2 } from 'react-icons/fi';
 import { openedWindow } from '../../jotai';
 import { useAtom } from 'jotai';
+import { motion, AnimatePresence } from "framer-motion";
 import classNames from 'classnames';
-import {motion, AnimatePresence} from "framer-motion"
+import { WINDOW_HEIGHT_SIZE } from '../../utils/constants';
 
 type Props = {
   children: React.ReactElement;
   title: string;
+  centeredContent?: boolean;
 };
-
-const boxAnimation = {
-  key: "box",
-  initial: {
-    y: "15%",
-    opacity: 0,
-    scale: 0.8,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-  },
-  transition: {
-    duration: 0.15,
-    ease: "backInOut",
-  },
-}
 
 const defaultPosition = { x: 150, y: 150 };
 
-const WindowLayout = ({ children, title }: Props) => {
+const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);
-  const [, setWindow] = useAtom(openedWindow);
+  const { 1: setWindow } = useAtom(openedWindow);
   const [controlledPosition, setControlledPosition] = useState(defaultPosition);
 
   const handleCloseWindow = () => {
@@ -65,8 +49,24 @@ const WindowLayout = ({ children, title }: Props) => {
   if (rootElement) {
     return ReactDOM.createPortal(
       <AnimatePresence>
-        <div className="bg-light-black bg-opacity-25 absolute h-screen w-full">
-          <motion.div {...boxAnimation}>
+        <div className="bg-black-light bg-opacity-25 absolute h-screen w-full">
+          <motion.div {...{
+              key: "box",
+              initial: {
+                y: "15%",
+                opacity: 0,
+                scale: 0.8,
+              },
+              animate: {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+              },
+              transition: {
+                duration: 0.15,
+                type: "backInOut",
+              },
+            }}>
             <Draggable
               bounds="body"
               handle=".handle"
@@ -74,13 +74,14 @@ const WindowLayout = ({ children, title }: Props) => {
               scale={1}
               onStop={onControlledDragStop}
             >
-              <div
-                className={
-                  classNames('shadow-2xl', {
-                    'max-w-full h-window-full': isFullScreen,
-                    'max-w-4xl': !isFullScreen,
-                  })
-                }
+              <motion.div
+                animate={isFullScreen ? "open" : "closed"}
+                variants={{
+                  closed: { maxWidth: '56rem', height: 'auto' },
+                  open: { maxWidth: '100%', height: WINDOW_HEIGHT_SIZE },
+                }}
+                initial={false}
+                className="shadow-2xl max-w-4xl"
               >
                 <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer" onDoubleClick={handleFullScreen}>
                   <div className="flex items-center space-x-2">
@@ -99,10 +100,12 @@ const WindowLayout = ({ children, title }: Props) => {
                     <h2 className="text-sm text-white font-semibold">{title}</h2>
                   </div>
                 </header>
-                <section className="bg-gray-100 p-4 rounded-b-lg h-full">
+                <section className={classNames('bg-gray-100 p-4 rounded-b-lg h-full', {
+                  'flex items-center justify-center': centeredContent
+                })}>
                   {children}
                 </section>
-              </div>
+              </motion.div>
             </Draggable>
           </motion.div>
         </div>

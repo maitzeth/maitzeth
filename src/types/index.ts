@@ -1,13 +1,16 @@
 export enum WINDOWS {
   About = 'ABOUT',
-  Portfolio = 'PORTFOLIO',
-  WorkedTechs = 'WORKED_TECHNOLOGIES',
-  Gaming = 'GAMING'
+  Portfolio = 'PORTFOLIO'
+}
+
+export enum THEME {
+  light = 'LIGHT',
+  dark = 'DARK',
 }
 
 export interface Responsive<T> {
-  mobile: T,
-  desktop: T
+  mobile?: T,
+  desktop?: T
 }
 
 export type Sizes = 'large' | 'medium' | 'small' | 'full';

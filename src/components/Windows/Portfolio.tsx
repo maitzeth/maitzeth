@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import WindowLayout from './WindowLayout';
 import { WORK_EXPERIENCE } from '../../utils/constants';
-import { Container, Box } from '../UI';
+import { Container, Box, Paragraph } from '../UI';
 import { motion } from "framer-motion";
 import WorkExperienceTab from '../WorkExperienceTab';
 
@@ -24,11 +24,12 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <WindowLayout title="Portfolio">
-      <Container size={{ mobile: 'full', desktop: 'large' }}>
-        <div className="overflow-hidden bg-white drop-shadow-lg sm:rounded-md">
-          <ul role="list" className="divide-y divide-gray-200">
+    <WindowLayout title="Portfolio" centeredContent>
+      <Container size={{ mobile: 'full', desktop: 'large' }} className="flex-1">
+        <Box overflow={{ mobile: 'hidden' }} borderRadius={{ mobile: 'medium' }} className="bg-white drop-shadow-lg">
+          <Box component="ul" role="list" className="divide-y">
             {WORK_EXPERIENCE.map((work, index) => {
+              const isSelected = selectedExperience === index;
               return (
                 <Box component="li" key={`work-experience-item-${index}`}>
                   <WorkExperienceTab
@@ -40,21 +41,22 @@ const Portfolio = () => {
                     onClick={handleClickOpenTab}
                     place={work.place}
                     position={work.position}
+                    isSelected={isSelected}
                   />
                   <motion.div
-                    animate={selectedExperience === index ? "open" : "closed"}
+                    animate={isSelected ? "open" : "closed"}
                     variants={variants}
                     initial={false}
                   >
                     <Box padding={{ mobile: 'medium', desktop: 'large' }}>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem amet atque omnis mollitia deleniti. Sed minus debitis dolor. Harum beatae quae explicabo natus officia eveniet, dolores sunt asperiores optio magni.</p>
+                      <Paragraph size="sm" color="light-gray">{work.description}</Paragraph>
                     </Box>
                   </motion.div>
                 </Box>
               );
             }).reverse()}
-          </ul>
-        </div>
+          </Box>
+        </Box>
       </Container>
     </WindowLayout>
   );

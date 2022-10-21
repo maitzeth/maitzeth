@@ -8,7 +8,7 @@ const About = () => {
   const workingTime = differenceInYears(new Date(), new Date(2015, 1, 1));
 
   return (
-    <WindowLayout title="About me">
+    <WindowLayout title="About me" centeredContent>
       <Container component="article" size={{ desktop: 'large', mobile: 'full' }} className="p-4">
         <Stack component="article" direction={{ mobile: 'vertical', desktop: 'horizontal' }} space={{ mobile: 5, desktop: 3 }} className="items-center">
           <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 2, desktop: 2 }}>

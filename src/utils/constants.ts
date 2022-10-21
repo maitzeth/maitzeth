@@ -2,6 +2,8 @@ import { format } from 'date-fns';
 
 export const DATE_FORMAT = 'LLLL yyyy';
 
+export const WINDOW_HEIGHT_SIZE = 'calc(100vh - 35px)';
+
 export const WORK_EXPERIENCE = [
   {
     position: 'HTML/CSS Instructor',
@@ -9,7 +11,8 @@ export const WORK_EXPERIENCE = [
     place: 'Escuela Web LLC',
     from_date: format(new Date('2015-08-01'), DATE_FORMAT),
     to_date: format(new Date('2018-04-01'), DATE_FORMAT),
-    contract: 'Part-time'
+    contract: 'Part-time',
+    description: 'Worked as an in-house teacher, teaching HTML5, and CSS3 and introducing Javascript using jQuery all from scratch.'
   },
   {
     position: 'Front-End Developer',
@@ -17,7 +20,8 @@ export const WORK_EXPERIENCE = [
     place: 'EGO Agency',
     from_date: format(new Date('2018-06-01'), DATE_FORMAT),
     to_date: format(new Date('2019-04-01'), DATE_FORMAT),
-    contract: 'Full-time'
+    contract: 'Full-time',
+    description: 'Worked on developing new features, code maintenance, and re-writing code to get better performance and improving UX, using AngularJS'
   },
   {
     position: 'Front-End Developer and React-Native Developer',
@@ -25,7 +29,8 @@ export const WORK_EXPERIENCE = [
     place: 'Braintly',
     from_date: format(new Date('2019-05-01'), DATE_FORMAT),
     to_date: format(new Date('2020-11-01'), DATE_FORMAT),
-    contract: 'Full-time'
+    contract: 'Full-time',
+    description: 'Helped to define architecture, tooling, and build UI of multiple applications, always using the ReactJS ecosystem and working with tools and technologies such as React, Formik, Redux, CSS-In-JS, React Native, and many many more.'
   },
   {
     position: 'Web Development Consultant',
@@ -33,7 +38,8 @@ export const WORK_EXPERIENCE = [
     place: 'Freelance',
     from_date: format(new Date('2016-07-01'), DATE_FORMAT),
     to_date: 'Current',
-    contract: 'Full-time'
+    contract: 'Full-time',
+    description: 'Working as a Freelance Developer, using multiple technologies to handle and build up apps.'
   },
   {
     position: 'Software Engineer',
@@ -41,6 +47,7 @@ export const WORK_EXPERIENCE = [
     place: 'Revolt',
     from_date: format(new Date('2021-02-01'), DATE_FORMAT),
     to_date: 'Current',
-    contract: 'Full-time'
+    contract: 'Full-time',
+    description: 'Here I am a Software Engineer, building, maintaining, reviewing, and helping other developers in every way possible. Choosing and working with multiple technologies that fit on every project such as Angular, React, PHP, NodeJS, Javascript, and TypeScript in general. Leading, organizing and working with multiple developers to finish a projects/apps/tasks with the best performance and quality possible.'
   }
 ];

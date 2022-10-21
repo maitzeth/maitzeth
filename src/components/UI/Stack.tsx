@@ -22,6 +22,22 @@ const Stack = ({ children, direction, component = 'div', space, className }: Pro
   const spaceDesktop = isDesktop && space?.desktop ? `stack__space--${space?.desktop}` : undefined;
   const spaceMobile = isMobile && space?.mobile ? `stack__space--${space?.mobile}` : undefined;
 
+  if (!("mobile" in direction)) {
+    throw new Error('Mobile Direction responsive key is missing');
+  }
+
+  if (!("desktop" in direction)) {
+    throw new Error('Desktop Direction responsive key is missing');
+  }
+
+  if (space && !("mobile" in space)) {
+    throw new Error('Mobile Space responsive key is missing');
+  }
+
+  if (space && !("desktop" in space)) {
+    throw new Error('Desktop Space responsive key is missing');
+  }
+
   const directionClass = classNames('stack', {
     'stack__horizontal': direction.desktop === 'horizontal' && isDesktop || direction.mobile === 'horizontal' && isMobile,
     'stack__vertical': direction.desktop === 'vertical' && isDesktop || direction.mobile === 'vertical' && isMobile,

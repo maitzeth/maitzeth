@@ -2,9 +2,12 @@ import React from 'react';
 import { openedWindow } from '../jotai';
 import { useAtom } from 'jotai';
 import { WINDOWS } from '../types';
-import { FiTerminal, FiUser, FiPackage } from 'react-icons/fi';
+import { FiTerminal, FiUser } from 'react-icons/fi';
 import { FaSteam } from 'react-icons/fa';
+import { Box } from './UI';
 import Icon from './Icon';
+import Widget from './Widget';
+import Steam from './Widgets/Steam';
 
 const Desktop = () => {
   const [, setWindow] = useAtom(openedWindow);
@@ -23,29 +26,24 @@ const Desktop = () => {
       icon: <FiTerminal />,
       window: WINDOWS.Portfolio,
       label: "Work Experience"
-    },
-    {
-      icon: <FiPackage />,
-      window: WINDOWS.WorkedTechs,
-      label: "Used Technologies"
-    },
-    {
-      icon: <FaSteam />,
-      window: WINDOWS.Gaming,
-      label: "Gaming Status"
-    },
+    }
   ];
 
   return (
-    <div className="w-desktop absolute top-11">
-      <div className="px-4 flex flex-col gap-6">
+    <Box display={{ mobile: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">
+      <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} className="flex-col flex-1">
         {icons.map((icon, index) => (
           <div key={`icon-${index}`} className="w-24 text-center">
             <Icon name={icon.window} onClick={handleOpenWindow} icon={icon.icon} label={icon.label} />
           </div>
         ))}
-      </div>
-    </div>
+      </Box>
+      <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} alignItems={{ mobile: 'right' }} className="flex-col flex-1">
+        <Widget title="Steam Status">
+          <Steam />
+        </Widget>
+      </Box>
+    </Box>
   );
 };
 
