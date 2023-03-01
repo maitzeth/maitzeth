@@ -20,7 +20,7 @@ export const getYuGiCard = () => {
 
 export const getSteamStatus = () => {
   return useQuery(["steam"], async () => {
-    const { data } = await axios.get('http://localhost:3000');
-    return data;
+    const { data } = await axios.get('https://andre-me-api.onrender.com/');
+    return data.data;
   });
 };

@@ -28,7 +28,7 @@ type Props = {
   position?: Responsive<Positions>;
   paddingX?: Responsive<Measures>,
   paddingY?: Responsive<Measures>,
-} & Record<string, any>;
+}
 
 const Box = ({
   component = 'div',
