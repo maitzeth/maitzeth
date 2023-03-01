@@ -3,12 +3,10 @@ import { openedWindow } from '../jotai';
 import { useAtom } from 'jotai';
 import { WINDOWS } from '../types';
 import { FiTerminal, FiUser } from 'react-icons/fi';
-import { FaSteam } from 'react-icons/fa';
 import { Box } from './UI';
 import Icon from './Icon';
 import Widget from './Widget';
 import Steam from './Widgets/Steam';
-import YuGiOhCard from './Widgets/YuGiOhCard';
 
 const Desktop = () => {
   const { 1: setWindow } = useAtom(openedWindow);
@@ -50,9 +48,6 @@ const Desktop = () => {
       >
         <Widget title="Steam Status">
           <Steam />
-        </Widget>
-        <Widget title="Your next yugi card?" size="sm" theme="light">
-          <YuGiOhCard />
         </Widget>
       </Box>
     </Box>

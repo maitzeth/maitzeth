@@ -12,9 +12,15 @@ export const getWeather = () => {
 
 export const getYuGiCard = () => {
   return useQuery(["yugioh"], async () => {
-    const { data } = await axios.get("https://db.ygoprodeck.com/api/v7/randomcard.php");
-    return data;
+    return await axios.get("https://db.ygoprodeck.com/api/v7/randomcard.php");
   }, {
     enabled: false,
   });
 }
+
+export const getSteamStatus = () => {
+  return useQuery(["steam"], async () => {
+    const { data } = await axios.get('http://localhost:3000');
+    return data;
+  });
+};

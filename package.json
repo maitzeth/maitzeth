@@ -21,8 +21,10 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
     "react-icons": "^4.4.0",
+    "react-spinners": "^0.13.8",
     "react-spring": "^9.5.5",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "sonner": "^0.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
