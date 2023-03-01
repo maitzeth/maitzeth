@@ -26,8 +26,9 @@ type Props = {
   justifyContent?: Responsive<JustifyDirection>;
   gap?: Responsive<Measures>;
   position?: Responsive<Positions>;
-  paddingX?: Responsive<Measures>,
-  paddingY?: Responsive<Measures>,
+  paddingX?: Responsive<Measures>;
+  paddingY?: Responsive<Measures>;
+  [key: string]: any;
 }
 
 const Box = ({
