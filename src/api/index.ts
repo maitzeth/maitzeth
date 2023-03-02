@@ -1,26 +1,54 @@
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { useQueries, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 
-export const getWeather = () => {
-  return useQuery(["posts"], async () => {
-    const { data } = await axios.get(
-      "https://goweather.herokuapp.com/weather/argentina"
-    );
-    return data;
-  });
+interface SteamProfile {
+  steamid: string;
+  communityvisibilitystate: number;
+  profilestate: number;
+  personaname: string;
+  commentpermission: number;
+  profileurl: string;
+  avatar: string;
+  avatarmedium: string;
+  avatarfull: string;
+  avatarhash: string;
+  lastlogoff: number;
+  personastate: number;
+  realname: string;
+  primaryclanid: string;
+  timecreated: number;
+  personastateflags: number;
+  gameextrainfo?: number;
 }
 
-export const getYuGiCard = () => {
-  return useQuery(["yugioh"], async () => {
-    return await axios.get("https://db.ygoprodeck.com/api/v7/randomcard.php");
-  }, {
-    enabled: false,
-  });
+interface SteamGames {
+  appid: number;
+  name: string;
+  playtime_2weeks: number;
+  playtime_forever: number;
+  img_icon_url: string;
+  playtime_windows_forever: number;
+  playtime_mac_forever: number;
+  playtime_linux_forever: number;
 }
 
-export const getSteamStatus = () => {
-  return useQuery(["steam"], async () => {
-    const { data } = await axios.get('https://andre-me-api.onrender.com/');
-    return data.data;
+export const getSteamProfile = () => {
+  return useQueries({
+    queries: [
+      {
+        queryKey: ['steamProfile', 1],
+        queryFn: async (): Promise<SteamProfile> => {
+          const { data } = await axios.get('https://andre-me-api.onrender.com/profile');
+          return data.data;
+        }
+      },
+      {
+        queryKey: ['steamGames', 2],
+        queryFn: async (): Promise<SteamGames[]>  => {
+          const { data } = await axios.get('https://andre-me-api.onrender.com/games');
+          return data.data;
+        }
+      }
+    ]
   });
 };
