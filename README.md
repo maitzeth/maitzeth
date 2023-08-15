@@ -1,8 +1,8 @@
 <h1 align="center">Hi 👋, I'm Andre Ivan</h1>
 <p align="center">I'm a Software Engineer from Venezuela, currently based in Argentina. With over 8 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.</p>
-<p align="center">As a Front End developer, I love crafting seamless user experiences and interfaces. (And let's not forget about Developer Experience, I'm always dedicated to writing beautiful and developer-friendly code). Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web using React and its ecosystem.</p>
-<p align="center">This doesn't mean I don't hate/like to work with Back End technologies; they're just not my strongest skill. However, I'm a pragmatic person :)</p>
-<p align="center">Now then... together, we can create software solutions that leave an impact on both users and businesses.</p>
+<p align="center">As a Front End developer, I love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.</p>
+<p align="center">This doesn't mean I don't like to work with Back End technologies; they're just not my strongest skill. However, I'm a pragmatic person :)</p>
+<p align="center">I'd like to create software solutions that leave an impact on both users, businesses and developers.</p>
 
 <hr style="margin-bottom: 20px;" />
 
