@@ -1,6 +1,7 @@
 <h1 align="center">Hi 👋, I'm Andre Ivan</h1>
-<h5 align="center">I'm a Software Engineer from Venezuela. Currently, I am based in Argentina, With over 8 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.</h5>
-<h5 align="center">As a Front-end developer, my ability to craft seamless user experiences and interfaces. Over the past couple of years, my focus has revolved around React and its ecosystem, Together, we can create software solutions that leave a lasting impact on users and businesses alike.</h5>
+<p align="center">I'm a Software Engineer from Venezuela. Currently, I am based in Argentina, With over 8 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.</p>
+<p align="center">As a Front-end developer, my ability to craft seamless user experiences and interfaces. <i>(And lets not forget Developer Experience, always trying to writte beautiful and easy-to-use code).</i> Over the past couple of years, my main focus has been around React and its ecosystem.</p>
+<p align="center">Together, we can create software solutions that leave a lasting impact on users and businesses alike.</p>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=maitzeth&label=Profile%20views&color=0e75b6&style=flat" alt="maitzeth" /> </p>
 
