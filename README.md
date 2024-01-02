@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Andre Ivan</h1>
 <p align="center">
-  I'm a Software Engineer from Venezuela, currently based in Argentina. With over 9 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
+  I'm a Software Engineer, currently based in Argentina. With over 9 years of experience in web development, I've been providing expert consultancy services to a big number clients and companies.
 </p>
 <p align="center">
 As a Front End developer, I love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
@@ -22,7 +22,7 @@ I'd like to create software solutions that leave an impact on both users, busine
 
 - 🔭 I’m currently working on building amazing products along with [Revolt](https://www.revolt.digital/)
 
-- 🌱 I’m currently learning **RSC, HTMX, Flutters and more Software Engineering tools**
+- 🌱 I’m currently learning **RSC, HTMX and more Software Engineering tools**
 
 - 👨‍💻 All of my projects are available at [https://andreivan.me/](https://andreivan.me/)
 
