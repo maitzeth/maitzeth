@@ -4,3 +4,4 @@ export { Paragraph } from './Paragraph';
 export { Box } from './Box';
 export { Container } from './Container';
 export { FullHeight } from './FullHeight';
+export { Link } from './Link';

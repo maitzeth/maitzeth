@@ -1,6 +1,6 @@
 import axios from 'axios';
 import classNames from 'classnames';
-import { formatDistanceToNow, fromUnixTime, formatDistance } from 'date-fns';
+import { formatDistanceToNow, fromUnixTime } from 'date-fns';
 import React, { useEffect } from 'react';
 import { FiAlertTriangle } from 'react-icons/fi';
 import { BarLoader } from 'react-spinners';

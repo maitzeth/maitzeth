@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import ReactDOM from "react-dom";
+import React, { useState, PropsWithChildren } from 'react';
+import { createPortal } from "react-dom";
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { FiX, FiMaximize2, FiMinimize2 } from 'react-icons/fi';
-import { openedWindow } from '../../jotai';
+import { openedWindow } from '@/jotai';
 import { useAtom } from 'jotai';
 import { motion, AnimatePresence } from "framer-motion";
 import classNames from 'classnames';
-import { WINDOW_HEIGHT_SIZE } from '../../utils/constants';
+import { WINDOW_HEIGHT_SIZE } from '@/utils/constants';
 
-type Props = {
-  children: React.ReactElement;
+console.log(WINDOW_HEIGHT_SIZE);
+
+type Props = PropsWithChildren<{
   title: string;
   centeredContent?: boolean;
-};
+}>;
 
-const defaultPosition = { x: 150, y: 150 };
+const defaultPosition = { x: 100, y: 100 };
 
 export const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);
@@ -47,7 +48,7 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
   const rootElement = document.getElementById('app');
 
   if (rootElement) {
-    return ReactDOM.createPortal(
+    return createPortal(
       <AnimatePresence>
         <div className="bg-black-light bg-opacity-25 absolute h-screen w-full">
           <motion.div {...{
@@ -77,7 +78,7 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
               <motion.div
                 animate={isFullScreen ? "open" : "closed"}
                 variants={{
-                  closed: { maxWidth: '56rem', height: 'auto' },
+                  closed: { maxWidth: '56rem', height: '400px' },
                   open: { maxWidth: '100%', height: WINDOW_HEIGHT_SIZE },
                 }}
                 initial={false}
@@ -100,7 +101,7 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
                     <h2 className="text-sm text-white font-semibold">{title}</h2>
                   </div>
                 </header>
-                <section className={classNames('bg-gray-100 p-4 rounded-b-lg h-full', {
+                <section className={classNames('bg-gray-100 p-4 rounded-b-lg h-full overflow-auto', {
                   'flex items-center justify-center': centeredContent
                 })}>
                   {children}

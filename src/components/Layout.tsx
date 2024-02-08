@@ -35,12 +35,6 @@ const Layout = ({ children, ...rest }: Props) => {
 
   const { 1: setWindow } = useAtom(openedWindow);
 
-  const handleOpenWindow = (windowToOpen: KeysOf<typeof WINDOWS>) => () => {
-    console.log('zzz', windowToOpen);
-    // console.log(windowToOpen, 'zxczx');
-    // setWindow(windowToOpen);
-  };
-
   // Parse from string to number
   // Example '10px' to 10
   const navbarHeight = Number(TW_CONFIG.extend.height.navbar.split('px')[0]);
@@ -49,7 +43,6 @@ const Layout = ({ children, ...rest }: Props) => {
     <div {...rest}>
       <MenuBar />
       <section
-        id="app"
         className="flex"
         style={{
           height: height ? height - navbarHeight : '100vh',
@@ -70,24 +63,26 @@ const Layout = ({ children, ...rest }: Props) => {
             ))}
           </Box>
         </aside>
-        <div className="flex-1">
-          {children}
+        <div id="app" className="flex flex-1">
+          <div className="flex-1">
+            {children}
+          </div>
+          <aside className="py-5 h-full">
+            <Box
+              component="section"
+              paddingX={{ mobile: 'medium' }}
+              display={{ mobile: 'flex' }}
+              gap={{ mobile: 'large' }}
+              alignItems={{ mobile: 'start', desktop: 'right' }}
+              className="flex-col flex-1"
+              marginTop={{ mobile: 'large', desktop: 'none' }}
+            >
+              <Widget title="Steam Status">
+                <Steam />
+              </Widget>
+            </Box>
+          </aside>
         </div>
-        <aside className="py-5 h-full">
-          <Box
-            component="section"
-            paddingX={{ mobile: 'medium' }}
-            display={{ mobile: 'flex' }}
-            gap={{ mobile: 'large' }}
-            alignItems={{ mobile: 'start', desktop: 'right' }}
-            className="flex-col flex-1"
-            marginTop={{ mobile: 'large', desktop: 'none' }}
-          >
-            <Widget title="Steam Status">
-              <Steam />
-            </Widget>
-          </Box>
-        </aside>
       </section>
     </div>
   );
