@@ -9,7 +9,7 @@ type Props = HTMLAttributes<HTMLDivElement> & PropsWithClassName<PropsWithChildr
   component?: Exclude<Components, "span">;
 }>>;
 
-const Stack = ({ children, direction, component = 'div', space, className }: Props) => {
+export const Stack = ({ children, direction, component = 'div', space, className }: Props) => {
   const sizes = getWindowSizes();
   const { width } = useWindowSize();
 
@@ -44,5 +44,3 @@ const Stack = ({ children, direction, component = 'div', space, className }: Pro
     className: directionClass
   }, children);
 };
-
-export default Stack;

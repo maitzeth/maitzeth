@@ -51,3 +51,33 @@ export const WORK_EXPERIENCE = [
     description: 'Here I am a Software Engineer, building, maintaining, reviewing, and helping other developers in every way possible. Choosing and working with multiple technologies that fit on every project such as Angular, React, PHP, NodeJS, Javascript, and TypeScript in general. Leading, organizing and working with multiple developers to finish a projects/apps/tasks with the best performance and quality possible.'
   }
 ];
+
+export const TW_CONFIG = {
+  extend: {
+    backgroundImage: {
+      app: "url('/src/assets/background.webp')",
+    },
+    colors: {
+      "window-header": "#393939",
+      silver: "#abacae",
+      navbar: "#1d1d1d",
+      window: {
+        red: "#e5635b",
+        green: "#39ac48",
+      },
+      black: {
+        DEFAULT: "#333333",
+        light: "#4d4d4d",
+      },
+      blue: {
+        light: "#6693e8",
+      },
+    },
+    width: {
+      desktop: "768px",
+    },
+    height: {
+      navbar: "35px",
+    },
+  },
+}

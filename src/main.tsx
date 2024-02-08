@@ -5,12 +5,11 @@ import { Toaster } from 'sonner'
 import 'virtual:fonts.css';
 import './index.scss';
 
-// <React.StrictMode>
-// </React.StrictMode>
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.Fragment>
-    <Toaster richColors  />
-    <App />
-  </React.Fragment>
+  <React.StrictMode>
+    <React.Fragment>
+      <Toaster richColors  />
+      <App />
+    </React.Fragment>
+  </React.StrictMode>
 );

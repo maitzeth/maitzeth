@@ -31,7 +31,7 @@ const Steam = () => {
 
   if (!dataProfile && loadingProfile && loadingGames) {
     return (
-      <Box paddingY={{ mobile: 'medium' }}>
+      <Box component="div" paddingY={{ mobile: 'medium' }}>
         <BarLoader color={colors.white} width="100%" />
       </Box>
     )
@@ -39,7 +39,7 @@ const Steam = () => {
 
   if (errorProfile) {
     return (
-      <Box>
+      <Box component="div">
         <Stack direction={{ mobile: 'horizontal', desktop: 'horizontal' }} space={{ mobile: 2, desktop: 2 }}>
           <FiAlertTriangle color={colors.red[500]} />
           <Paragraph size="xs" color="white">Something weird happened, please try again.</Paragraph>
@@ -73,10 +73,10 @@ const Steam = () => {
   
     return (
       <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 3, desktop: 3 }}>
-        <Box display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'between' }} className="w-full">
-          <Box flex={{ mobile: 1 }} className="truncate">
+        <Box component="div" display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'between' }} className="w-full">
+          <Box component="div" flex={{ mobile: 1 }} className="truncate">
             <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 1, desktop: 1 }}>
-              <Box display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} className="space-x-3">
+              <Box component="div" display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} className="space-x-3">
                 <Paragraph size="md" color="whitesmoke" transform="bold" truncate>{dataProfile.personaname}</Paragraph>
                 <div className={statusBadge}></div>
               </Box>
@@ -102,14 +102,14 @@ const Steam = () => {
             <Paragraph size="xs" color="white">{ dataProfile?.gameextrainfo ?? 'Nothing' }</Paragraph>
           </Stack>
         </Stack>
-        {dataGames.length > 0 && (
+        {dataGames && dataGames.length > 0 && (
           <React.Fragment>
             <Paragraph size="xs" color="blue-light">Recently played games:</Paragraph>
             <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 3, desktop: 3 }}>
-              {dataGames?.map(game => {
+              {dataGames.map(game => {
                 const gamePlayTime = getGamePlaytime(game.playtime_forever);
                 return (
-                  <Box>
+                  <Box component="div" key={`game-${game.appid}`}>
                     <Stack direction={{ mobile: 'horizontal', desktop: 'horizontal' }} space={{ mobile: 2, desktop: 2 }} className="items-center">
                       <img className="h-10 w-10 flex-shrink-0" src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`} alt={`game ${game.name}`} />
                       <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }}>

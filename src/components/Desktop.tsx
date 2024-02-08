@@ -15,18 +15,7 @@ const Desktop = () => {
     setWindow(windowToOpen);
   };
 
-  const icons = [
-    {
-      icon: <FiUser />,
-      window: WINDOWS.About,
-      label: "About me"
-    },
-    {
-      icon: <FiTerminal />,
-      window: WINDOWS.Portfolio,
-      label: "Work Experience"
-    }
-  ];
+ 
 
   return (
     // <Box   display={{ mobile: 'block', desktop: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">

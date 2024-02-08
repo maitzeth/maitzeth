@@ -1,4 +1,6 @@
 // Generics
+export type ValuesOf<T> = T[keyof T];
+export type KeysOf<T> = keyof T;
 export type Maybe<T> = T | null;
 export type Optional<T> = T | undefined;
 export type PropsWithClassName<T = unknown> = T & {
@@ -9,10 +11,10 @@ export type Prettify<T> = {
 } & {};
 // End Generics
 
-export enum WINDOWS {
-  About = 'ABOUT',
-  Portfolio = 'PORTFOLIO'
-}
+export const WINDOWS = {
+  About: 0,
+  Portfolio: 1
+} as const;
 
 export enum THEME {
   light = 'LIGHT',
