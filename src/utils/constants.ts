@@ -33,15 +33,6 @@ export const WORK_EXPERIENCE = [
     description: 'Helped to define architecture, tooling, and build UI of multiple applications, always using the ReactJS ecosystem and working with tools and technologies such as React, Formik, Redux, CSS-In-JS, React Native, and many many more.'
   },
   {
-    position: 'Web Development Consultant',
-    location: 'Remote',
-    place: 'Freelance',
-    from_date: format(new Date('2016-07-01'), DATE_FORMAT),
-    to_date: 'Current',
-    contract: 'Full-time',
-    description: 'Working as a Freelance Developer, using multiple technologies to handle and build up apps.'
-  },
-  {
     position: 'Software Engineer',
     location: 'New York - Buenos Aires',
     place: 'Revolt',
