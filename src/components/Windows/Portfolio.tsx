@@ -26,7 +26,7 @@ const Portfolio = () => {
   return (
     <WindowLayout title="Portfolio" centeredContent>
       <Container size={{ mobile: 'full', desktop: 'large' }} className="flex-1">
-        <Box overflow={{ mobile: 'hidden' }} borderRadius={{ mobile: 'medium' }} className="bg-white drop-shadow-lg">
+        <Box component="div" overflow={{ mobile: 'hidden' }} borderRadius={{ mobile: 'medium' }} className="bg-white drop-shadow-lg">
           <Box component="ul" role="list" className="divide-y">
             {WORK_EXPERIENCE.map((work, index) => {
               const isSelected = selectedExperience === index;
@@ -48,7 +48,7 @@ const Portfolio = () => {
                     variants={variants}
                     initial={false}
                   >
-                    <Box padding={{ mobile: 'medium', desktop: 'large' }}>
+                    <Box component="div" padding={{ mobile: 'medium', desktop: 'large' }}>
                       <Paragraph size="sm" color="light-gray">{work.description}</Paragraph>
                     </Box>
                   </motion.div>

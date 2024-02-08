@@ -26,14 +26,14 @@ const WorkExperienceTab = ({ onClick, to_date, from_date, position, contract, lo
   return (
     <div tabIndex={0} role="button" aria-pressed="false" className="px-4 py-4 sm:px-6" onClick={() => onClick(id)}>
       <Stack direction={{ mobile: 'vertical', desktop: 'horizontal' }} className="items-center justify-between">
-        <Box display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} gap={{ mobile: 'small' }}>
-          <Box>
+        <Box component="div" display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} gap={{ mobile: 'small' }}>
+          <Box component="div">
             {isSelected ? <FiChevronUp size={24} /> : <FiChevronDown size={24} />}
           </Box>
           <Paragraph size="sm" color="gray" truncate>
             {position}
           </Paragraph>
-          <Box flexShrink={{ mobile: 0 }}>
+          <Box component="div" flexShrink={{ mobile: 0 }}>
             <p className="inline-flex rounded-full bg-black-light px-3 py-1 text-xs font-semibold leading-5 text-white">{contract}</p>
           </Box>
         </Box>
@@ -42,13 +42,13 @@ const WorkExperienceTab = ({ onClick, to_date, from_date, position, contract, lo
             <FiMapPin size={16} className="mr-1" />
             {location}
           </Paragraph>
-          <Box display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'end' }}>
+          <Box component="div" display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'end' }}>
             <FiUsers size={16} className="mr-1" />
             <Paragraph size="xs" color="gray">
               {place}
             </Paragraph>
           </Box>
-          <Box marginTop={{ mobile: 'small' }} display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'end' }}>
+          <Box component="div" marginTop={{ mobile: 'small' }} display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} justifyContent={{ mobile: 'end' }}>
             <FiCalendar size={16} className="mr-1" />
             <Paragraph size="xs" color="gray">
               <time dateTime={fromDateTimeAcc}>{fromDate}</time>

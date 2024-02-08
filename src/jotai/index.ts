@@ -1,4 +1,4 @@
 import { atom } from 'jotai';
-import { WINDOWS } from '../types';
+import { WINDOWS, ValuesOf, Maybe } from '@/types';
 
-export const openedWindow = atom<WINDOWS | null>(null);
+export const openedWindow = atom<Maybe<ValuesOf<typeof WINDOWS>>>(null);
