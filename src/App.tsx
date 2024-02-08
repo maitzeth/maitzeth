@@ -18,15 +18,11 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <FullHeight component="main" id="app" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
+      <FullHeight component="main" className="bg-app min-h-screen bg-center bg-no-repeat bg-cover overflow-y-hidden">
         <Layout>
-          <h1>qweqweqwe</h1>
+          {selectedWindow && availableWindows[selectedWindow]}
         </Layout>
       </FullHeight>
-        {/* <Layout>
-          {selectedWindow && availableWindows[selectedWindow]}
-        </Layout> */}
-      {/* </main> */}
     </QueryClientProvider>
   );
 };

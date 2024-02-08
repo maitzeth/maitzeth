@@ -12,8 +12,8 @@ export type Prettify<T> = {
 // End Generics
 
 export const WINDOWS = {
-  About: 0,
-  Portfolio: 1
+  About: 1,
+  Portfolio: 2
 } as const;
 
 export enum THEME {

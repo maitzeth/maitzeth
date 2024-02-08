@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useQueries, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
+import { useQueries } from '@tanstack/react-query';
 
 interface SteamProfile {
   steamid: string;
@@ -49,6 +49,6 @@ export const getSteamProfile = () => {
           return data.data;
         }
       }
-    ]
+    ],
   });
 };

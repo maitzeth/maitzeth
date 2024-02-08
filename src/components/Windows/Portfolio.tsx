@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import WindowLayout from './WindowLayout';
+import { WindowLayout } from './Layout';
 import { WORK_EXPERIENCE } from '../../utils/constants';
 import { Container, Box, Paragraph } from '../UI';
 import { motion } from "framer-motion";

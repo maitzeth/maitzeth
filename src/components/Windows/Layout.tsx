@@ -16,7 +16,7 @@ type Props = {
 
 const defaultPosition = { x: 150, y: 150 };
 
-const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
+export const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);
   const { 1: setWindow } = useAtom(openedWindow);
   const [controlledPosition, setControlledPosition] = useState(defaultPosition);
@@ -116,5 +116,3 @@ const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
 
   return null;
 }
-
-export default WindowLayout

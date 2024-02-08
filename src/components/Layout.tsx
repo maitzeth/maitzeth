@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, HTMLAttributes } from 'react';
 import MenuBar from './MenuBar';
 import { use100vh } from 'react-div-100vh';
 import { TW_CONFIG } from '@/utils/constants';
@@ -15,7 +15,7 @@ import Steam from './Widgets/Steam';
 
 // import Desktop from './Desktop';
 
-type Props = PropsWithChildren;
+type Props = HTMLAttributes<HTMLDivElement> & PropsWithChildren;
 
 const icons = [
   {
@@ -30,13 +30,13 @@ const icons = [
   }
 ];
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, ...rest }: Props) => {
   const height = use100vh();
 
   const { 1: setWindow } = useAtom(openedWindow);
 
   const handleOpenWindow = (windowToOpen: KeysOf<typeof WINDOWS>) => () => {
-    console.log('zzz');
+    console.log('zzz', windowToOpen);
     // console.log(windowToOpen, 'zxczx');
     // setWindow(windowToOpen);
   };
@@ -46,19 +46,22 @@ const Layout = ({ children }: Props) => {
   const navbarHeight = Number(TW_CONFIG.extend.height.navbar.split('px')[0]);
 
   return (
-    <>
+    <div {...rest}>
       <MenuBar />
-      <section style={{
-        height: height ? height - navbarHeight : '100vh',
-      }}>
+      <section
+        id="app"
+        className="flex"
+        style={{
+          height: height ? height - navbarHeight : '100vh',
+        }}>
         <aside className="w-[5rem] h-full py-5 bg-navbar bg-opacity-85">
           <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} className="flex-col flex-1">
             {icons.map((icon, index) => (
               <div key={`icon-${index}`}>
                 <Icon
                   name={icon.window}
-                  onClick={(name) => {
-                    console.log(name);
+                  onClick={(windowId) => {
+                    setWindow(windowId);
                   }}
                   icon={icon.icon}
                   label={icon.label}
@@ -67,10 +70,26 @@ const Layout = ({ children }: Props) => {
             ))}
           </Box>
         </aside>
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
+        <aside className="py-5 h-full">
+          <Box
+            component="section"
+            paddingX={{ mobile: 'medium' }}
+            display={{ mobile: 'flex' }}
+            gap={{ mobile: 'large' }}
+            alignItems={{ mobile: 'start', desktop: 'right' }}
+            className="flex-col flex-1"
+            marginTop={{ mobile: 'large', desktop: 'none' }}
+          >
+            <Widget title="Steam Status">
+              <Steam />
+            </Widget>
+          </Box>
+        </aside>
       </section>
-      {/* <Desktop /> */}
-    </>
+    </div>
   );
 };
 

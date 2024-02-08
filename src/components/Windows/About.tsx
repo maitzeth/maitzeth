@@ -1,6 +1,6 @@
 import React from 'react';
 import { differenceInYears } from 'date-fns';
-import WindowLayout from './WindowLayout';
+import { WindowLayout } from './Layout';
 import { Stack, Title, Paragraph, Container } from '../UI';
 import PhotoOfMe from '../../assets/me.png';
 
@@ -14,18 +14,16 @@ const About = () => {
           <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 2, desktop: 2 }}>
             <Title component='h1'>Hello there 👋, I'm André Iván.</Title>
             <Paragraph>
-              I'm a Venezuelan developer based in Argentina. I've been working as
-              web development consultant for many clients and companies for the last {workingTime}{" "}
-              years.
+            I'm a Software Engineer, currently based in Argentina. With over {workingTime} years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
             </Paragraph>
             <Paragraph>
-              My biggest engineering skill is work as a <strong>Front-end developer</strong>{" "}
-              I've working with <strong>Backend technologies</strong> like NodeJS, PHP but it is not my
-              strongest skill.
+              As a Front End developer, I love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
             </Paragraph>
             <Paragraph>
-              My works in the last couple of years has been in React that I am a
-              huge fan of it's technology and ecosystem.
+              This doesn't mean I don't like to work with Back End technologies. However, I'm a pragmatic person :)
+            </Paragraph>
+            <Paragraph>
+              I'd like to create software solutions that leave an impact on both users, businesses and developers.
             </Paragraph>
             <Paragraph>
               I love my cats 😼, play videogames 🎮 and drums 🥁.
