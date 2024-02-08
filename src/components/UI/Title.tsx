@@ -1,16 +1,13 @@
-import React from 'react';
+import { PropsWithChildren, createElement, HTMLAttributes } from 'react';
 
-type Props = {
-  children: React.ReactNode;
+type Props = HTMLAttributes<HTMLHeadingElement> & PropsWithChildren<{
   component: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-}
+}>
 
-const Title = ({ children, component }: Props) => {
-  return React.createElement(
+export const Title = ({ children, component }: Props) => {
+  return createElement(
     component,
     { className: 'text-gray-800 text-3xl font-bold' },
     children
   );
 };
-
-export default Title;

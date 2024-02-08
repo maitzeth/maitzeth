@@ -29,7 +29,11 @@ const Desktop = () => {
   ];
 
   return (
-    <Box display={{ mobile: 'block', desktop: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">
+    // <Box   display={{ mobile: 'block', desktop: 'flex' }} position={{ mobile: 'absolute' }} className="top-11 w-full">
+    <Box component="div">
+      <ol>
+
+      </ol>
       <Box component="section" paddingX={{ mobile: 'medium' }} display={{ mobile: 'flex' }} gap={{ mobile: 'large' }} className="flex-col flex-1">
         {icons.map((icon, index) => (
           <div key={`icon-${index}`} className="w-24 text-center">

@@ -1,3 +1,14 @@
+// Generics
+export type Maybe<T> = T | null;
+export type Optional<T> = T | undefined;
+export type PropsWithClassName<T = unknown> = T & {
+  className?: string;
+};
+export type Prettify<T> = {
+  [K in keyof T]: T[K];
+} & {};
+// End Generics
+
 export enum WINDOWS {
   About = 'ABOUT',
   Portfolio = 'PORTFOLIO'

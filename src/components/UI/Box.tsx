@@ -1,16 +1,13 @@
-import React from 'react';
-import classNames from 'classnames';
-import { Responsive } from '../../types';
+import { createElement, PropsWithChildren, HTMLAttributes } from 'react';
+import { cn } from '@/utils';
+import { Responsive, PropsWithClassName } from '@/types';
 
 type Measures<T = unknown> = 'small' | 'medium' | 'large' | T;
 type AlignDirection = 'start' | 'center' | 'right'
 type JustifyDirection = 'start' | 'center' | 'end' | 'between';
 type Positions = 'absolute' | 'relative' | 'fixed';
 
-type Props = {
-  children: React.ReactNode;
-  component?: 'span' | 'div' | 'article' | 'section' | 'li' | 'ul' | 'ol';
-  className?: string;
+type BaseProps = PropsWithClassName<PropsWithChildren<{
   display?: Responsive<'none' | 'block' | 'flex'>;
   padding?: Responsive<Measures>;
   paddingBottom?: Responsive<Measures>;
@@ -28,10 +25,33 @@ type Props = {
   position?: Responsive<Positions>;
   paddingX?: Responsive<Measures>;
   paddingY?: Responsive<Measures>;
-  [key: string]: any;
+}>>;
+
+// Discriminate Unions with Literal Types. See https://dev.to/darkmavis1980/what-are-typescript-discriminated-unions-5hbb
+type DivProps = HTMLAttributes<HTMLDivElement> & {
+  component: 'div' | 'article' | 'section' | 'main';
+};
+
+type SpanProps = HTMLAttributes<HTMLSpanElement> & {
+  component: 'span';
+};
+
+type OlProps = HTMLAttributes<HTMLOListElement> & {
+  component: 'ol';
 }
 
-const Box = ({
+type UlProps = HTMLAttributes<HTMLUListElement> & {
+  component: 'ul';
+}
+
+type LiProps = HTMLAttributes<HTMLLIElement> & {
+  component: 'li';
+}
+
+
+type Props = (DivProps & BaseProps) | (SpanProps & BaseProps) | (OlProps & BaseProps) | (UlProps & BaseProps) | (LiProps & BaseProps);
+
+export const Box = ({
   component = 'div',
   children,
   className,
@@ -54,7 +74,7 @@ const Box = ({
   flex,
   ...props
 }: Props) => {
-  const classes = classNames(className, {
+  const classNames = cn(className, {
     'flex': display?.mobile === 'flex',
     'block': display?.mobile === 'block',
     'hidden': display?.mobile === 'none',
@@ -195,10 +215,10 @@ const Box = ({
     'lg:flex-none': flex?.desktop === 'none',
   });
 
-  return React.createElement(component, {
-    className: classes,
-    ...props
+  // TODO
+  // @ts-ignore
+  return createElement(component, {
+    ...props,
+    className: classNames,
   }, children);
 };
-
-export default Box;

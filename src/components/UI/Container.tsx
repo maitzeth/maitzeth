@@ -1,16 +1,15 @@
-import React from 'react';
-import { Components, Responsive, Sizes } from '../../types';
-import classNames from 'classnames';
+import { createElement, PropsWithChildren, HTMLAttributes } from 'react';
+import { Components, Responsive, Sizes, PropsWithClassName } from '@/types';
+import { cn } from '@/utils';
 
-type Props = {
-  children: React.ReactNode;
+type Props = HTMLAttributes<HTMLDivElement> & PropsWithClassName<PropsWithChildren<{
   component?: Components;
   size: Responsive<Sizes>;
   className?: string;
-};
+}>>;
 
-const Container = ({ component = 'div', children, size, className }: Props) => {
-  const classes = classNames('mx-auto', {
+export const Container = ({ component = 'div', children, size, className }: Props) => {
+  const classes = cn('mx-auto', {
     'lg:max-w-7xl': size.desktop === 'large',
     'max-w-7xl': size.mobile === 'large',
 
@@ -24,9 +23,7 @@ const Container = ({ component = 'div', children, size, className }: Props) => {
     'max-w-full': size.mobile === 'full',
   }, className);
 
-  return React.createElement(component, {
+  return createElement(component, {
     className: classes
   }, children);
 };
-
-export default Container;

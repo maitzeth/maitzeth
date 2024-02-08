@@ -1,18 +1,17 @@
-import React from 'react';
-import classNames from 'classnames';
+import { PropsWithChildren, HTMLAttributes } from 'react';
+import { PropsWithClassName } from '@/types';
+import { cn } from '@/utils';
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
+type Props = HTMLAttributes<HTMLParagraphElement> & PropsWithClassName<PropsWithChildren<{
   size?: 'xs' | 'sm' | 'md' | 'lg';
   color?: 'light-gray' | 'gray' | 'black' | 'blue-light' | 'white' | 'whitesmoke';
   transform?: 'bold' | 'normal';
   truncate?: boolean;
   uppercase?: boolean;
-}
+}>>;
 
-const Paragraph = ({ children, className, size = 'md', color = 'black', transform = 'normal', uppercase, truncate }: Props) => {
-  const textClass = classNames(className, {
+export const Paragraph = ({ children, className, size = 'md', color = 'black', transform = 'normal', uppercase, truncate, ...rest }: Props) => {
+  const textClass = cn(className, {
     'text-xs': size === 'xs',
     'text-sm': size === 'sm',
     'text-base': size === 'md',
@@ -28,7 +27,5 @@ const Paragraph = ({ children, className, size = 'md', color = 'black', transfor
     'uppercase': uppercase,
     'truncate': truncate
   })
-  return <p className={textClass}>{children}</p>;
+  return <p className={textClass} {...rest}>{children}</p>;
 };
-
-export default Paragraph;

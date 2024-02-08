@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
-import classNames from 'classnames';
-import { Responsive, Directions, SizeValues, Components } from '../../types';
-import { getWindowSizes } from '../../utils';
+import { createElement, PropsWithChildren, HTMLAttributes } from 'react';
+import { getWindowSizes, cn } from '@/utils';
+import { Responsive, Directions, SizeValues, Components, PropsWithClassName } from '@/types';
 import { useWindowSize } from 'react-use';
 
-type Props = {
-  children: React.ReactNode;
+type Props = HTMLAttributes<HTMLDivElement> & PropsWithClassName<PropsWithChildren<{
   direction: Responsive<Directions>;
   space?: Responsive<SizeValues>;
-  component?: Components;
-  className?: string;
-}
+  component?: Exclude<Components, "span">;
+}>>;
 
 const Stack = ({ children, direction, component = 'div', space, className }: Props) => {
   const sizes = getWindowSizes();
@@ -38,12 +35,12 @@ const Stack = ({ children, direction, component = 'div', space, className }: Pro
     throw new Error('Desktop Space responsive key is missing');
   }
 
-  const directionClass = classNames('stack', {
+  const directionClass = cn('stack', {
     'stack__horizontal': direction.desktop === 'horizontal' && isDesktop || direction.mobile === 'horizontal' && isMobile,
     'stack__vertical': direction.desktop === 'vertical' && isDesktop || direction.mobile === 'vertical' && isMobile,
   }, className, spaceDesktop, spaceMobile);
 
-  return React.createElement(component, {
+  return createElement(component, {
     className: directionClass
   }, children);
 };
