@@ -10,6 +10,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.oswald-font {
+  font-family: 'Oswald', sans-serif;
+}
+
 .stack {
   &__horizontal {
     @apply flex;

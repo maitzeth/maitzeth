@@ -3,17 +3,16 @@ import MenuBar from './MenuBar';
 import { use100vh } from 'react-div-100vh';
 import { TW_CONFIG } from '@/utils/constants';
 
-import React from 'react';
 import { openedWindow } from '../jotai';
 import { useAtom } from 'jotai';
 import { KeysOf, WINDOWS } from '@/types';
 import { FiTerminal, FiUser } from 'react-icons/fi';
 import { Box } from './UI';
 import Icon from './Icon';
-import Widget from './Widget';
-import Steam from './Widgets/Steam';
-
-// import Desktop from './Desktop';
+import { Widget } from './Widget';
+import { Steam } from './Widgets/Steam';
+import { Github } from './Widgets/Github';
+import { FaSteam, FaGithub } from "react-icons/fa";
 
 type Props = HTMLAttributes<HTMLDivElement> & PropsWithChildren;
 
@@ -77,7 +76,10 @@ const Layout = ({ children, ...rest }: Props) => {
               className="flex-col flex-1"
               marginTop={{ mobile: 'large', desktop: 'none' }}
             >
-              <Widget title="Steam Status">
+              <Widget title="Github" icon={<FaGithub className="w-7 h-7 text-white" />}>
+                <Github />
+              </Widget>
+              <Widget title="Steam Status" icon={<FaSteam className="w-7 h-7 text-white" />}>
                 <Steam />
               </Widget>
             </Box>

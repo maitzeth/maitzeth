@@ -7,9 +7,9 @@ import { BarLoader } from 'react-spinners';
 import { toast } from 'sonner';
 import colors from 'tailwindcss/colors';
 import { getSteamProfile } from '../../api';
-import { Box, Paragraph, Stack } from '../UI';
+import { Box, Paragraph, Stack, Link } from '../UI';
 
-const Steam = () => {
+export const Steam = () => {
   const [
     { data: dataProfile, error: errorProfile, isFetching: loadingProfile },
     { data: dataGames, error: errorGames, isFetching: loadingGames },
@@ -55,8 +55,7 @@ const Steam = () => {
     );
     
     const createdTime = formatDistanceToNow(
-      new Date(fromUnixTime(dataProfile.timecreated)),
-      { addSuffix: true }
+      new Date(fromUnixTime(dataProfile.timecreated))
     );
   
     const statusBadge = classNames('w-4 h-4 rounded-full', {
@@ -77,14 +76,14 @@ const Steam = () => {
           <Box component="div" flex={{ mobile: 1 }} className="truncate">
             <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 1, desktop: 1 }}>
               <Box component="div" display={{ mobile: 'flex' }} alignItems={{ mobile: 'center' }} className="space-x-3">
+                <Link href={dataProfile.profileurl}>
+                  <img className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300" src={dataProfile.avatarfull} alt="andre's avatar" />
+                </Link>
                 <Paragraph size="md" color="whitesmoke" transform="bold" truncate>{dataProfile.personaname}</Paragraph>
                 <div className={statusBadge}></div>
               </Box>
             </Stack>
           </Box>
-          <a href={dataProfile.profileurl} rel="nofollow noopener" target="_blank">
-            <img className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300" src={dataProfile.avatarfull} alt="andre's avatar" />
-          </a>
         </Box>
         <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 2, desktop: 2 }}>
           {isOffline && (
@@ -98,13 +97,13 @@ const Steam = () => {
             <Paragraph size="xs" color="white">{ createdTime }</Paragraph>
           </Stack>
           <Stack direction={{ mobile: 'horizontal', desktop: 'horizontal' }} space={{ mobile: 2, desktop: 2 }}>
-            <Paragraph size="xs" color="blue-light">Playing:</Paragraph>
+            <Paragraph size="xs" color="blue-light">Now playing:</Paragraph>
             <Paragraph size="xs" color="white">{ dataProfile?.gameextrainfo ?? 'Nothing' }</Paragraph>
           </Stack>
         </Stack>
         {dataGames && dataGames.length > 0 && (
           <React.Fragment>
-            <Paragraph size="xs" color="blue-light">Recently played games:</Paragraph>
+            <Paragraph size="lg" color="white" className="oswald-font">Recently played games</Paragraph>
             <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 3, desktop: 3 }}>
               {dataGames.map(game => {
                 const gamePlayTime = getGamePlaytime(game.playtime_forever);
@@ -129,5 +128,3 @@ const Steam = () => {
 
   return null;
 };
-
-export default Steam;

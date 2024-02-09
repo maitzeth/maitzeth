@@ -5,10 +5,8 @@ import { FiX, FiMaximize2, FiMinimize2 } from 'react-icons/fi';
 import { openedWindow } from '@/jotai';
 import { useAtom } from 'jotai';
 import { motion, AnimatePresence } from "framer-motion";
-import classNames from 'classnames';
+import { cn } from '@/utils';
 import { WINDOW_HEIGHT_SIZE } from '@/utils/constants';
-
-console.log(WINDOW_HEIGHT_SIZE);
 
 type Props = PropsWithChildren<{
   title: string;
@@ -84,7 +82,7 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
                 initial={false}
                 className="shadow-2xl max-w-4xl"
               >
-                <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer" onDoubleClick={handleFullScreen}>
+                <header className="handle flex justify-between items-center bg-window-header px-3 py-2 rounded-t-lg cursor-pointer border-x border-window-header" onDoubleClick={handleFullScreen}>
                   <div className="flex items-center space-x-2">
                     <div>
                       <button type="button" className="window-button bg-window-red" onClick={handleCloseWindow}>
@@ -101,9 +99,11 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
                     <h2 className="text-sm text-white font-semibold">{title}</h2>
                   </div>
                 </header>
-                <section className={classNames('bg-gray-100 p-4 rounded-b-lg h-full overflow-auto', {
-                  'flex items-center justify-center': centeredContent
-                })}>
+                <section
+                  className={cn('bg-gray-100 p-4 h-full overflow-auto border-b border-r border-l border-window-header', {
+                    'flex items-center justify-center': centeredContent || isFullScreen
+                  })}
+                >
                   {children}
                 </section>
               </motion.div>

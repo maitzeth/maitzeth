@@ -15,7 +15,7 @@ export default defineConfig({
     }),
     VitePluginFonts({
       google: {
-        families: ['Roboto'],
+        families: ['Roboto', 'Oswald'],
       },
     }),
   ],
