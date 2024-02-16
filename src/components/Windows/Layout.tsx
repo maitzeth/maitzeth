@@ -7,15 +7,16 @@ import { useAtom } from 'jotai';
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from '@/utils';
 import { WINDOW_HEIGHT_SIZE } from '@/utils/constants';
+import { PropsWithClassName } from '@/types';
 
-type Props = PropsWithChildren<{
+type Props = PropsWithClassName<PropsWithChildren<{
   title: string;
   centeredContent?: boolean;
-}>;
+}>>;
 
 const defaultPosition = { x: 100, y: 100 };
 
-export const WindowLayout = ({ children, title, centeredContent = false }: Props) => {
+export const WindowLayout = ({ children, title, centeredContent = false, className = 'p-4' }: Props) => {
   const [isFullScreen, toggleFullScreen] = useState(false);
   const { 1: setWindow } = useAtom(openedWindow);
   const [controlledPosition, setControlledPosition] = useState(defaultPosition);
@@ -100,8 +101,8 @@ export const WindowLayout = ({ children, title, centeredContent = false }: Props
                   </div>
                 </header>
                 <section
-                  className={cn('bg-gray-100 p-4 h-full overflow-auto border-b border-r border-l border-window-header', {
-                    'flex items-center justify-center': centeredContent || isFullScreen
+                  className={cn('bg-gray-100 h-full overflow-auto border-b border-r border-l border-window-header', className, {
+                    'flex items-center justify-center': centeredContent
                   })}
                 >
                   {children}

@@ -13,7 +13,8 @@ export type Prettify<T> = {
 
 export const WINDOWS = {
   About: 1,
-  Portfolio: 2
+  Portfolio: 2,
+  Three: 3,
 } as const;
 
 export enum THEME {

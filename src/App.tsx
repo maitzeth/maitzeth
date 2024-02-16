@@ -5,6 +5,7 @@ import { WINDOWS } from './types';
 import { FullHeight } from '@/components/UI';
 import About from './components/Windows/About';
 import Portfolio from './components/Windows/Portfolio';
+import { Three } from './components/Windows/Three';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
 
   const availableWindows = {
     [WINDOWS.About]: <About />,
-    [WINDOWS.Portfolio]: <Portfolio />
+    [WINDOWS.Portfolio]: <Portfolio />,
+    [WINDOWS.Three]: <Three />,
   };
 
   return (

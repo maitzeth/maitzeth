@@ -26,6 +26,11 @@ const icons = [
     icon: <FiTerminal />,
     window: WINDOWS.Portfolio,
     label: "Work Experience"
+  },
+  {
+    icon: <FiTerminal />,
+    window: WINDOWS.Three,
+    label: "ThreeJS Experiments"
   }
 ];
 

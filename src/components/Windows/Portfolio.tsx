@@ -1,7 +1,7 @@
 import { WindowLayout } from './Layout';
 import { DATE_FORMAT } from '@/utils/constants';
 import { Container, Box, Paragraph, Stack } from '@/components/UI';
-import { FiMapPin, FiUsers, FiCalendar, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FiMapPin, FiUsers, FiCalendar } from 'react-icons/fi';
 import { format, isValid } from 'date-fns';
 
 export const WORK_EXPERIENCE = [

@@ -1,4 +1,3 @@
-import React from 'react';
 import { differenceInYears } from 'date-fns';
 import { WindowLayout } from './Layout';
 import { Stack, Title, Paragraph, Container } from '../UI';
