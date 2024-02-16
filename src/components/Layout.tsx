@@ -13,6 +13,7 @@ import { Widget } from './Widget';
 import { Steam } from './Widgets/Steam';
 import { Github } from './Widgets/Github';
 import { FaSteam, FaGithub } from "react-icons/fa";
+import { TbBrandThreejs } from "react-icons/tb";
 
 type Props = HTMLAttributes<HTMLDivElement> & PropsWithChildren;
 
@@ -28,7 +29,7 @@ const icons = [
     label: "Work Experience"
   },
   {
-    icon: <FiTerminal />,
+    icon: <TbBrandThreejs />,
     window: WINDOWS.Three,
     label: "ThreeJS Experiments"
   }
