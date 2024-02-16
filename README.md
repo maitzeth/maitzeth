@@ -1,15 +1,15 @@
 <h1 align="center">Hi 👋, I'm Andre Ivan</h1>
 <p align="center">
-  I'm a Software Engineer, currently based in Argentina. With over 9 years of experience in web development, I've been providing expert consultancy services to a big number clients and companies.
+  I'm a Software Engineer, currently based in Argentina. With over 9 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
 </p>
 <p align="center">
-As a Front End developer, I love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
+I'm a Software Engineer that's passionate about building UI's and love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
 </p>
 <p align="center">
-This doesn't mean I don't like to work with Back End technologies. However, I'm a pragmatic person :)
+My strongest skills are around frontend development. However, I'm a pragmatic person :) so i can also tackle backend work.
 </p>
 <p align="center">
-I'd like to create software solutions that leave an impact on both users, businesses and developers.
+I like to create software solutions that leave an impact on both users, businesses and developers.
 </p>
 
 <hr style="margin-bottom: 20px;" />
@@ -18,11 +18,7 @@ I'd like to create software solutions that leave an impact on both users, busine
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=maitzeth" alt="maitzeth" /></a> </p>
 
-<p align="left"> <a href="https://twitter.com/maitzeth" target="blank"><img src="https://img.shields.io/twitter/follow/maitzeth?logo=twitter&style=for-the-badge" alt="maitzeth" /></a> </p>
-
 - 🔭 I’m currently working on building amazing products along with [Revolt](https://www.revolt.digital/)
-
-- 🌱 I’m currently learning **RSC, HTMX and more Software Engineering tools**
 
 - 👨‍💻 All of my projects are available at [https://andreivan.me/](https://andreivan.me/)
 
