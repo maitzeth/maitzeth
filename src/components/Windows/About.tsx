@@ -13,7 +13,7 @@ const About = () => {
           <Stack direction={{ mobile: 'vertical', desktop: 'vertical' }} space={{ mobile: 2, desktop: 2 }}>
             <Title component='h1'>Hello there 👋, I'm André Iván.</Title>
             <Paragraph>
-              I'm a Software Engineer, currently based in Argentina. With over 9 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
+              I'm a Software Engineer, currently based in Argentina. With over {workingTime} years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
             </Paragraph>
             <Paragraph>
               I'm a Software Engineer that's passionate about building UI's and love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
