@@ -12,8 +12,8 @@ function RotatingMoon() {
   return (
     <>
       <OrbitControls autoRotate />
-      <ambientLight intensity={0.1} />
-      <directionalLight />
+      <ambientLight intensity={0.1}  />
+      {/* <directionalLight /> */}
       <mesh scale={2.5}>
         <sphereGeometry args={[1, 200, 200]} />
         <meshStandardMaterial

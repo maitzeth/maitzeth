@@ -13,9 +13,23 @@ export const WORK_EXPERIENCE = [
     to_date: format(new Date('2018-04-01'), DATE_FORMAT),
     contract: 'Full Time',
     description: (
-      <Paragraph size="sm" color="light-gray">
-        I had the opportunity to work with HTML5, CSS3, PHP, Wordpress and a lots of technologies. For over 4 years, I had successfully provided my services for numerous clients, bringing their ideas to life and deliver solutions that meet the unique requirements of each project and make my clients happy :)
-      </Paragraph>
+      <ul className="list-disc pl-5">
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Had the opportunity to work with multiple clients by providing services of consulting and development.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Develop web applications using HTML, CSS3, PHP, Wordpress, React, Angular, jQuery.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Deliver solutions that meet the unique requirements of each project and make my clients happy :)
+          </Paragraph>
+        </li>
+      </ul>
     ),
   },
   {
@@ -26,9 +40,13 @@ export const WORK_EXPERIENCE = [
     to_date: format(new Date('2018-04-01'), DATE_FORMAT),
     contract: 'Part-time',
     description: (
-      <Paragraph size="sm" color="light-gray">
-        I helped a total of 145 people during this time, in successfully completing their graduation process by providing comprehensive guidance on the fundamental concepts of HTML5, CSS3, and JavaScript. Actively helping them with the finalization of a final project, ensuring the attainment of required grades and enabling successful acquisition of their degrees.
-      </Paragraph>
+      <ul className="list-disc pl-5">
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Helped a total of 145 people during this time, in successfully completing their graduation process by providing comprehensive guidance on the fundamental concepts of HTML5, CSS3, and JavaScript.
+          </Paragraph>
+        </li>
+      </ul>
     ),
   },
   {
@@ -39,9 +57,28 @@ export const WORK_EXPERIENCE = [
     to_date: format(new Date('2019-04-01'), DATE_FORMAT),
     contract: 'Full-time',
     description: (
-      <Paragraph size="sm" color="light-gray">
-        Using AngularJS 1.6, I contributed to building new features while also performing maintenance on legacy code. Additionally, I took the tasks of re-doing old modules to enhance performance and reduce load times. Through refactoring CSS, improving caching mechanisms, and optimizing functions for faster calculations, I achieved a significant improvement of almost 20% in performance. These efforts directly translated into a better user experience for the application.
-      </Paragraph>
+      <ul className="list-disc pl-5">
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Helped in the development of new features for an internal product at a large company, while also performing maintenance work to address bugs.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Undertook the task of redesigning old modules to improve performance and reduce load times, achieved by measuring the computation times of numerous functions.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Configured a Babel setup with Gulp to ensure new feature code using ES6 are compatible with IE11.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Improving and optimizing loading times by enhancing CSS and JS minification, setting up an automation process for building for production using Gulp.
+          </Paragraph>
+        </li>
+      </ul>
     ),
   },
   {
@@ -49,12 +86,26 @@ export const WORK_EXPERIENCE = [
     location: 'Buenos Aires, Argentina',
     place: 'Braintly',
     from_date: format(new Date('2019-05-01'), DATE_FORMAT),
-    to_date: format(new Date('2020-11-01'), DATE_FORMAT),
+    to_date: format(new Date('2020-12-01'), DATE_FORMAT),
     contract: 'Full-time',
     description: (
-      <Paragraph size="sm" color="light-gray">
-        Experienced in Front-End Developer focused on optimizing UI development processes for successful product delivery. I am proficient in the ReactJS ecosystem like Formik, Redux, CSS-In-JS, and React Native. Skilled int building UIs while collaborating on cross-functional architectural decisions. My proactive problem-solving approach and unwavering commitment to best practices consistently streamline development, resulting in enhanced user experiences.
-      </Paragraph>
+      <ul className="list-disc pl-5">
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Helped in the development of new products for multiple clients while also maintaining legacy applications within the React ecosystem.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Worked to develop the company's first React Native application for a client using a WebRTC SDK.
+          </Paragraph>
+        </li>
+        <li>
+          <Paragraph size="sm" color="light-gray">
+            Contributed to enhancing the efficiency of component and UI development inside the company by collaborating with the team lead to establish and construct an internal UI Components library.
+          </Paragraph>
+        </li>
+      </ul>
     ),
   },
   {
@@ -65,15 +116,33 @@ export const WORK_EXPERIENCE = [
     to_date: 'Current',
     contract: 'Full-time',
     description: (
-      <Paragraph size="sm" color="light-gray">
         <ul className="list-disc pl-5">
-          <li>Helped build new products for multiple clients and maintaining legacy applications.</li>
-          <li>Build Design Systems for multiple projects.</li>
-          <li>Develop web applications using React, Next, React Native, Typescript, Node, GraphQL, CSS-In-JS, Tailwind, Angular. </li>
-          <li>Mentor engineers to help them grow in their carrers inside the company.</li>
-          <li>Setup Front-End Infrastructure to improve workflow and make all process easier for all engineers, using Vite, Storybook and using tools like husky to enhance the commit messages and pre-push/pre-commit options.</li>
+          <li>
+            <Paragraph size="sm" color="light-gray">
+              Develop web applications using React, Next, React Native, Typescript, Node, GraphQL, CSS-In-JS, Tailwind, Angular. 
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph size="sm" color="light-gray">
+              Helped build new products for multiple clients and maintain legacy applications by adding new features and fixing bugs.
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph size="sm" color="light-gray">
+              Worked directly with UI/UX team to build components based on a Design Systems.
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph size="sm" color="light-gray">
+              Mentor co-workers from engineering team to help them grow in their career path inside the company.
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph size="sm" color="light-gray">
+              Setting up Front-End Infrastructure to improve workflow and easier for all engineers, using Vite with React, Storybook, Git Hooks with Husky, Jotai or Recoil stores, HTTP Data Fetching with SRW/ReactQuery for API Rest or Apollo Client for GraphQL projects.
+            </Paragraph>
+          </li>
         </ul>
-      </Paragraph>
     ),
   }
 ];
