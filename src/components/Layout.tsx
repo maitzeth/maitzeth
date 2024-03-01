@@ -1,5 +1,5 @@
 import { PropsWithChildren, HTMLAttributes } from 'react';
-import MenuBar from './MenuBar';
+import { MenuBar } from './MenuBar';
 import { use100vh } from 'react-div-100vh';
 import { TW_CONFIG } from '@/utils/constants';
 
