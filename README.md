@@ -1,22 +1,53 @@
 <h1 align="center">Hi 👋, I'm Andre Ivan</h1>
-<p align="center">
-  I'm a Software Engineer, currently based in Argentina. With over 9 years of experience in web development, I have been providing expert consultancy services to numerous clients and companies.
+
+<p>
+  I'm a Software Engineer who loves building software with NodeJS, PHP, TypeScript, React, React Native, WordPress, Angular <i>(plus some cool tools like Redux, Next, Jotai, CSS-IN-JS, ReactQuery, SWR, GIT, Storybook, Apollo Client and many more).</i>
 </p>
-<p align="center">
-I'm a Software Engineer that's passionate about building UI's and love crafting seamless user experiences and interfaces with beautiful and developer-friendly code. Over the past couple of years, my main focus has been around Design Systems, Performance, Accessibility in Web Development using React and its ecosystem.
+
+<p>
+  With over 9 years of experience, I'm all about software development. Every day, I'm learning and improving how to make my work better.
 </p>
-<p align="center">
-My strongest skills are around frontend development. However, I'm a pragmatic person :) so i can also tackle backend work.
+
+<p>
+  My strongest skills are around frontend, However, I'm a pragmatic person :) so I can also tackle backend work.
 </p>
-<p align="center">
-I like to create software solutions that leave an impact on both users, businesses and developers.
+
+<p>
+  I'm good at communicating, love learning new things quickly, and enjoy solving software problems.
 </p>
+
+<p>
+  My passion? Making UIs that not only look great but also feel amazing to use, with clean and easy-to-understand code. I'm particularly passionate about making websites fast, accessible (A11y), and easy to use.
+</p>
+
+<p>
+  Lately, I've been all about making websites fast and easy to use, especially with ReactJS.
+</p>
+
+<p>I'm proficient in English (B2+) and a native Spanish speaker, enabling me to communicate effectively in both languages.</p>
+
+
+## For a closer look at my work please visit my website and GitHub profile:
+
+Website: https://andreivan.me/
+
+GitHub: https://github.com/maitzeth
+
+## What I'm learning right now?
+
+AWS I want an AWS Certification in the future!
 
 <hr style="margin-bottom: 20px;" />
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=maitzeth&label=Profile%20views&color=0e75b6&style=flat" alt="maitzeth" /> </p>
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=maitzeth&label=Profile%20views&color=grey&style=for-the-badge" alt="maitzeth" />
+</p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=maitzeth" alt="maitzeth" /></a> </p>
+<p align="left">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=maitzeth" alt="maitzeth" />
+  </a>
+</p>
 
 - 👨‍💻 All of my projects are available at [https://andreivan.me/](https://andreivan.me/)
 
@@ -28,8 +59,8 @@ I like to create software solutions that leave an impact on both users, business
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
-<a href="https://www.linkedin.com/in/andre-ivan-mz/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/andre-ivan-mz/" height="30" width="40" /></a>
-<a href="https://www.instagram.com/andreivandrummer" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="andreivandrummer" height="30" width="40" /></a>
+  <a href="https://www.linkedin.com/in/andre-ivan-mz/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/andre-ivan-mz/" height="30" width="40" /></a>
+  <a href="https://www.instagram.com/andreivandrummer" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="andreivandrummer" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>

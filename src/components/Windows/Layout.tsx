@@ -1,4 +1,4 @@
-import React, { useState, PropsWithChildren } from 'react';
+import { useState, PropsWithChildren } from 'react';
 import { createPortal } from "react-dom";
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { FiX, FiMaximize2, FiMinimize2 } from 'react-icons/fi';

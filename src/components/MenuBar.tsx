@@ -39,7 +39,9 @@ export const MenuBar = () => {
 
   return (
     <nav className="flex w-full px-10 h-navbar items-center justify-between bg-navbar">
-      <section></section>
+      <section>
+        
+      </section>
       <section>
         <p className="text-sm text-white">
           {date}

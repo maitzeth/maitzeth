@@ -94,7 +94,7 @@ export const Steam = () => {
           )}
           <Stack direction={{ mobile: 'horizontal', desktop: 'horizontal' }} space={{ mobile: 2, desktop: 2 }}>
             <Paragraph size="xs" color="blue-light">Account time:</Paragraph>
-            <Paragraph size="xs" color="white">{ createdTime }</Paragraph>
+            <Paragraph size="xs" color="white">{createdTime}</Paragraph>
           </Stack>
           <Stack direction={{ mobile: 'horizontal', desktop: 'horizontal' }} space={{ mobile: 2, desktop: 2 }}>
             <Paragraph size="xs" color="blue-light">Now playing:</Paragraph>
