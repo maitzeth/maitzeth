@@ -1,5 +1,5 @@
 <p align="center">
-  I'm a Software Developer focusing on Front-End Dev, loving ❤️ React above all. But also specialized in crafting exceptional software solutions using a variety of technologies.
+  I'm a Software Developer focusing on Front-End Dev. But also specialized in crafting exceptional software solutions using a variety of technologies.
 </p>
 
 <hr style="margin-bottom: 20px;" />
